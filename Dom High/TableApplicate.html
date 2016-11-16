@@ -54,7 +54,7 @@
 
     <!--添加与删除行-->
     <script>
-        //window.onload = function () {
+        // window.onload = function () {
         //    var oBtn = document.getElementById("btn1");
         //    var oTab = document.getElementById("tab1");
         //    var oTxt = document.getElementById("txt1");
@@ -64,7 +64,8 @@
         //        var oTr = document.createElement("tr");
         //        var oTd = null;
 
-        //        oTd = document.createElement("td");oTab.tBodies[0].rows.length
+        //        oTd = document.createElement("td");
+        //        oTab.tBodies[0].rows.length
         //        oTd.innerHTML = iNowId++;
         //        oTr.appendChild(oTd);
 
@@ -83,13 +84,13 @@
 
         //        oTab.tBodies[0].appendChild(oTr);
         //    }
-        //}
+        // }
     </script>
 
     <!--搜索四版本-->
     <!--版本1：基础版本——字符串比较-->
     <script>
-        //window.onload = function () {
+        // window.onload = function () {
         //    var oBtn = document.getElementById("btn1");
         //    var oTxt = document.getElementById("txt1");
         //    var oTab = document.getElementById("tab1");
@@ -104,12 +105,12 @@
         //            }
         //        }
         //    }
-        //}
+        // }
     </script>
 
     <!--版本2：忽略大小写——大小写转换-->
     <script>
-        //window.onload = function () {
+        // window.onload = function () {
         //    var oBtn = document.getElementById("btn1");
         //    var oTxt = document.getElementById("txt1");
         //    var oTab = document.getElementById("tab1");
@@ -127,35 +128,35 @@
         //            }
         //        }
         //    }
-        //}
+        // }
     </script>
 
     <!--版本3：模糊搜索——search的使用-->
     <script>
         //search原理
         //var str = "abcdefg";
-        //alert(str.search("bc"));
-        //alert(str.search("be"));
+        // alert(str.search("bc"));
+        // alert(str.search("be"));
 
-        //var str = "Blue leo";
-        //var arr = str.split(" ");
+        // var str = "Blue leo";
+        // var arr = str.split(" ");
 
-        //var str2 = "Blue id s person";
-        //var bFound = false;
+        // var str2 = "Blue id s person";
+        // var bFound = false;
 
-        //for (var i = 0; i < arr.length; i++) {
+        // for (var i = 0; i < arr.length; i++) {
         //    if ( str2.search(arr[0])!=-1) {
         //        bFound = true;
         //        break;
         //    }
-        //}
+        // }
 
         
     </script>
 
     <!--版本4：多关键词——split-->
     <script>
-        //window.onload = function () {
+        // window.onload = function () {
         //    var oBtn = document.getElementById("btn1");
         //    var oTxt = document.getElementById("txt1");
         //    var oTab = document.getElementById("tab1");
@@ -182,16 +183,16 @@
         //            }
         //        }
         //    }
-        //}
+        // }
     </script>
 
     <!--移动Li-->
     <style>
-        /*#ul1{background-color:red;}
+       /* #ul1{background-color:red;}
         #ul2{background-color:yellow;}*/
     </style>
     <script>
-        //window.onload = function () {
+        // window.onload = function () {
         //    var oBtn = document.getElementById("btn1");
         //    var oUl1 = document.getElementById("ul1");
         //    var oUl2 = document.getElementById("ul2");
@@ -199,17 +200,17 @@
 
         //    oBtn.onclick = function () {
         //        //oUl2.appendChild(aLi[0]);//1.先移除父级		2.再添加到新的父级
-
         //        oUl1.appendChild(aLi[0]);
+        //        //oUl1.insertBefore(aLi[0],aLi[aLi.length-1]);
         //    }
-        //}
+        // }
     </script>
 
     <!--元素排序：转换——排序——插入-->
     <!--sort方法的使用不熟悉-->
     <!--zhushi内是错误理解-->
     <script>
-        //window.onload = function () {
+        // window.onload = function () {
         //    var oBtn = document.getElementById("btn1");
         //    var oTab = document.getElementById("tab1");
         //    var bAsc = true;//是否是升序排列的（是否是1，2，3.....n这种形式)
@@ -252,38 +253,38 @@
         //        //    bAsc = true;
         //        //}
         //    }
-        //}
+        // }
     </script>
 
     <!--排序Li-->
     <script>
-        // window.onload = function () {
-        //    var oBtn = document.getElementById("btn1");
-        //    var oUl = document.getElementById("ul1");
+        window.onload = function () {
+           var oBtn = document.getElementById("btn1");
+           var oUl = document.getElementById("ul1");
 
-        //    oBtn.onclick = function () {
-        //        var aLi = oUl.getElementsByTagName("li");
-        //        var arr = [];
+           oBtn.onclick = function () {
+               var aLi = oUl.getElementsByTagName("li");
+               var arr = [];
 
-        //        for (var i = 0; i < aLi.length; i++) {
-        //            arr[i] = aLi[i];
-        //        }
+               for (var i = 0; i < aLi.length; i++) {
+                   arr[i] = aLi[i];
+               }
 
-        //        arr.sort(function (li1,li2) {
-        //            return parseInt(li1.innerText) - parseInt(li2.innerText);
-        //        })
+               arr.sort(function (li1,li2) {
+                   return parseInt(li1.innerText) - parseInt(li2.innerText);
+               });
 
-        //        for (var i = 0; i < arr.length; i++) {
-        //            oUl.appendChild(arr[i]);
-        //        }
-        //    }
-        // }
+               for (var i = 0; i < arr.length; i++) {
+                   oUl.appendChild(arr[i]);
+               }
+           };
+        };
     </script>
 </head>
 <body>
     <!--搜索，高亮，增加删除行-->
     <!--元素排序：转换——排序——插入-->
-    <!--<input type="button" id="btn1" value="排序" />
+    <!-- <input type="button" id="btn1" value="排序" />
     <input type="text" id="txt1" />
     <table id="tab1" border="1" width="400">
         <thead>
@@ -328,10 +329,10 @@
             </tr>
             
         </tbody>
-    </table>-->
+    </table> -->
 
     <!--移动Li-->
-    <!--<input type="button" id="btn1" value="move" />
+    <!-- <input type="button" id="btn1" value="move" />
     <ul id="ul1">
         <li>1</li>
         <li>2</li>
@@ -339,16 +340,16 @@
         <li>4</li>
         <li>5</li>
     </ul>
-    <ul id="ul2"></ul>-->
+    <ul id="ul2"></ul> -->
 
     <!--排序Li-->
-    <!-- <input type="button" id="btn1" value="move" />
+    <input type="button" id="btn1" value="move" />
     <ul id="ul1">
         <li>10</li>
         <li>60</li>
         <li>22</li>
         <li>45</li>
         <li>5</li>
-    </ul> -->
+    </ul>
 </body>
 </html>

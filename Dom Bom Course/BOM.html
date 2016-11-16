@@ -5,15 +5,15 @@
     <title></title>
     <script>
         //window的open和close属性
-        //window.onload = function () {
-        //    var btn = document.getElementById("btn1");
+        window.onload = function () {
+           var btn = document.getElementById("btn1");
 
-        //    btn.onclick = function () {
-        //        window.open("http://www.baidu.com/", "_blank");
-        //    }
-        //}
+           btn.onclick = function () {
+               window.open("http://www.baidu.com/", "_blank");
+           }
+        }
 
-        //window.onload = function () {
+        // window.onload = function () {
         //    var txt1 = document.getElementById("txt1");
         //    var btn2 = document.getElementById("btn2");
 
@@ -22,7 +22,7 @@
         //        oNewWin.document.write(txt1.value);
                 
         //    }
-        //}
+        // }
 
         //window.onload = function () {
         //    var btn1 = document.getElementById("btn1");
@@ -48,21 +48,21 @@
     <script src="../move.js"></script>
 
     <script>
-        //侧边栏广告
-        window.onscroll=window.onresize=window.onload= function () {
-            var odiv = document.getElementById("div1");
-            var sTop = document.documentElement.scrollTop || document.body.scrollTop;
+        // //侧边栏广告
+        // window.onscroll=window.onresize=window.onload= function () {
+        //     var odiv = document.getElementById("div1");
+        //     var sTop = document.documentElement.scrollTop || document.body.scrollTop;
 
-            var d = (document.documentElement.clientHeight - odiv.offsetHeight) / 2;
-            //FF
-            odiv.style.top = d + sTop + "px";
+        //     var d = (document.documentElement.clientHeight - odiv.offsetHeight) / 2;
+        //     //FF
+        //     odiv.style.top = d + sTop + "px";
 
-            //IE6
-            //startMove(odiv, { top: d + sTop });
-        }
+        //     //IE6
+        //     // startMove(odiv, { top: d + sTop });
+        // }
     </script>
     <style>
-        #div1{width:100px;height:100px;background-color:red;position:absolute;right:0px;top:0px;}/*为把position设为fixed后的结果找到合理的理由*/
+       /* #div1{width:100px;height:100px;background-color:red;position:absolute;right:0px;top:0px;}*//*为把position设为fixed后的结果找到合理的理由*/
     </style>
 
     <script>
@@ -70,11 +70,11 @@
     </script>
 </head>
 <body style="height:10000px;">
-    <!--<input id="btn1"type="button"value="从新窗口中打开百度"/>
+    <input id="btn1" type="button" value="从新窗口中打开百度"/>
 
     <textarea id="txt1" rows="10" cols="40"></textarea>
-    <input id="btn2" type="button"/>-->
+    <input id="btn2" type="button" value="button2"/>
 
-    <div id="div1"></div>   
+    <!-- <div id="div1"></div>    -->
 </body>
 </html>
