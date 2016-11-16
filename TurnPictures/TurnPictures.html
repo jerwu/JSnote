@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>轮播图</title>
+    <!--轮播图基本原理-->
+    <script>
+        //window.onload = function () {
+        //    var oDiv = document.getElementById("div1");
+        //    var oBtn = document.getElementById("btn1");
+
+        //    oBtn.onclick = function () {
+        //        var arr = oDiv.innerHTML.split(",");
+
+        //        arr.push(arr[0]);
+        //        arr.shift();
+
+        //        oDiv.innerHTML = arr;
+        //    }
+        //}
+    </script>
+
+    <!--div位置移动还有点含糊不清，应该怎样添加-->
+    <!--轮播图实例1-->
+    <style>
+        #div1{width:100px;height:100px;background-color:red;position:absolute;left:100px;top:100px;}
+        #div2{width:100px;height:100px;background-color:green;position:absolute;left:250px;top:50px;}
+        #div3{width:100px;height:100px;background-color:blue;position:absolute;left:400px;top:100px;}
+    </style>
+    <script>
+        function getStyle(obj, attr) {
+           if (obj.currentStyle) {
+               return obj.currentStyle[attr];
+           }
+           else {
+               return getComputedStyle(obj, false)[attr];
+           }
+        }
+
+        window.onload = function () {
+           var btnLeft = document.getElementById("btnLeft");
+           var btnRight = document.getElementById("btnRight");
+           var aDiv = document.getElementsByTagName("div");
+           var arr = [];
+
+           for (var i = 0; i < aDiv.length; i++) {
+               arr.push([getStyle(aDiv[i], "left"),getStyle(aDiv[i], "top")]);
+           }
+           //alert(arr[0] + ";" + arr[1] + ";" + arr[2] + ";" + arr[3] + ";" + arr[4] + ";" + arr[5]);
+           btnLeft.onclick = function () {
+               arr.push(arr[0]);
+               arr.shift();
+                
+               for (var i = 0; i < aDiv.length; i++) {
+                   aDiv[i].style.left = arr[i][0];
+                   aDiv[i].style.top = arr[i][1];
+               }
+           }
+
+           btnRight.onclick = function () {
+               arr.unshift(arr[arr.length - 1]);
+               arr.pop();
+
+               for (var i = 0; i < aDiv.length; i++) {
+                   aDiv[i].style.left = arr[i][0];
+                   aDiv[i].style.top = arr[i][1];
+               }
+           }
+        }
+    </script>
+</head>
+<body>
+    <!--<div id="div1">1,2,3,4,5</div>
+    <input type="button" id="btn1" value="shift" />-->
+
+    <!--轮播图实例1-->
+    <input type="button" id="btnLeft" value="←" />
+    <input type="button" id="btnRight" value="→" />
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>运动初级课程</title>
+    <!--运动框架、匀速运动、缓冲运动-->
+    <!--运动框架-->
+    <style>
+        /*#div1{width:100px;height:100px;background-color:#ccc;position:absolute}*/
+    </style>
+    <script>
+        //运动框架的要素
+        //在开始运动时，关闭已有定时器
+        //把运动和停止隔开(if/else)
+
+        //window.onload=function(){
+        //    var oDiv = document.getElementById("div1");
+        //    var btn1 = document.getElementById("btn1");
+
+        //    btn1.onclick = function () {
+        //        var timer = null;
+        //        clearInterval(timer);
+        //        timer= setInterval(function () {
+        //            if (oDiv.offsetLeft >= 300)//是否到达终点
+        //            {
+        //                clearInterval(timer);//到达终点
+        //            }
+        //            else {
+        //                oDiv.style.left = oDiv.offsetLeft + 10 + "px";//到达之前
+        //            }
+        //        }, 30);
+        //    }
+        //}
+    </script>
+
+    <!--运动框架实例-->
+        <!--“分享到”侧边栏-->
+    <style>
+       /* #div1{width:100px;height:200px;background-color:#ccc;position:absolute;left:-100px;}
+        #txt1{width:20px;height:60px;background-color:#0094ff;position:absolute;left:100px;top:70px;line-height:20px;text-align:center;}*/
+    </style>   
+    <script>
+        
+        // window.onload = function () {
+        //     var oDiv = document.getElementById("div1");
+        //     oDiv.onmouseover = function () {
+        //         startMove(0);
+        //     }
+        //     oDiv.onmouseout = function () {
+        //         startMove(-100);
+        //     }
+        // }
+        // var timer = null;
+
+        // function startMove(iTarget) {
+        //     var oDiv = document.getElementById("div1");
+
+        //     clearInterval(timer);
+        //     timer = setInterval(function () {
+        //         var iSpeed=0;
+        //         if (oDiv.offsetLeft<iTarget) {
+        //             iSpeed = 10;
+        //         }
+        //         else{
+        //             iSpeed = -10;
+        //         }
+        //         if (oDiv.offsetLeft==iTarget) {
+        //             clearInterval(timer);
+        //         }
+        //         else {
+        //             oDiv.style.left = oDiv.offsetLeft + iSpeed + "px";
+        //         }
+        //     }, 30);
+        // }
+    </script>
+        <!--淡入淡出的图片-->
+    <style>
+        /*#img1{filter:alpha(opacity:30);opacity:0.3;}*/
+    </style>
+    <script>
+        // window.onload = function () {
+        //    var oimg = document.getElementById("img1");
+        //    oimg.onmouseover = function () {
+        //        startMove(100);
+        //    }
+        //    oimg.onmouseout = function () {
+        //        startMove(50);
+        //    }
+        // }
+
+        // var timer = null;
+        // var alpha = 30;//出错点。
+
+        // function startMove(iTarget) {
+        //    var oimg = document.getElementById("img1");
+            
+        //    clearInterval(timer);
+        //    timer = setInterval(function () {
+        //        var iSpeed = 0;
+        //        iSpeed = alpha < iTarget ? iSpeed = 1 : iSpeed = -1;
+        //        //if (alpha<iTarget) {
+        //        //    iSpeed = 1;
+        //        //}
+        //        //else {
+        //        //    iSpeed = -1;
+        //        //}
+        //        if (alpha==iTarget) {
+        //            clearInterval(timer);
+        //        }
+        //        else {
+        //            alpha += iSpeed;
+        //            oimg.style.filter = 'alpha(opacity:' + alpha + ')';
+        //            oimg.style.opacity = alpha / 100;
+        //            document.title = alpha;
+        //        }
+        //    }, 30);
+        // }
+    </script>
+
+    <!--缓冲运动-->
+    <style>
+       /* #div1{width:100px;height:100px;background-color:#ccc;position:absolute;left:500px;}
+        #span1{width:1px;height:300px;background-color:black;position:absolute;left:300px;top:0px;}*/
+    </style>
+    <script>
+        // window.onload = function () {
+        //    var obtn = document.getElementById("btn1");
+
+        //    obtn.onclick = function () {
+        //        startMove(300);
+        //    }
+        // }
+
+        // var timer = null;
+
+        // function startMove(iTarget) {
+        //    var oDiv = document.getElementById("div1");
+
+        //    clearInterval(timer);
+        //    timer = setInterval(function () {
+        //        var iSpeed = (iTarget - oDiv.offsetLeft) / 8;
+        //        //两个新东西Math.ceil(),Math.floor()向上取整，效果是使得物体慢慢靠近终点，而不会有什么多余空白；
+        //        iSpeed = oDiv.offsetLeft < iTarget ? iSpeed = Math.ceil(iSpeed) : iSpeed = Math.floor(iSpeed);
+        //        if (oDiv.offsetLeft==iTarget) {
+        //            clearInterval(timer);
+        //        }
+        //        else {
+        //            oDiv.style.left = oDiv.offsetLeft + iSpeed + "px";
+                    
+        //        }
+        //    }, 30);
+        // }
+    </script>
+
+    <!--练习-->
+    <style>
+        /*#div1{width:100px;height:100px;background-color:#0094ff;position:absolute;right:0;}
+        body{height:2000px;}*/
+    </style>
+    <script>
+        //window.onscroll = function () {
+        //    var oDiv = document.getElementById("div1");
+
+        //    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        //    var clientTop = (document.documentElement.clientHeight - oDiv.clientHeight) / 2;
+        //    var t = scrollTop + clientTop;
+        //    startMove(parseInt(t));
+        //}
+
+        //var timer = null;
+
+        //function startMove(iTarget) {
+        //    var oDiv = document.getElementById("div1");
+            
+        //    clearInterval(timer);
+        //    timer = setInterval(function () {
+        //        var iSpeed = (iTarget - oDiv.offsetTop) / 8;
+        //        iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+
+        //        if (oDiv.offsetTop==iTarget) {
+        //            clearInterval(timer);
+        //        }
+        //        else {
+        //            oDiv.style.top = oDiv.offsetTop + iSpeed + "px";
+        //        }
+        //    }, 30);
+        //}
+    </script>
+
+    <!--匀速运动的终止条件-->
+        <!--运动终止条件
+        匀速运动：距离足够近
+        缓冲运动：两点重合-->
+    <style>
+        /*#div1{width:100px;height:100px;background-color:#ccc;position:absolute;left:500px;}
+        #span1{width:1px;height:300px;background-color:black;position:absolute;left:300px;top:0px;}*/
+    </style>
+    <script>
+        // window.onload = function () {
+        //    var obtn = document.getElementById("btn1");
+        //    btn1.onclick = function () {
+        //        startMove(300);
+        //    }
+        // }
+
+        // var timer = null;
+
+        // function startMove(iTarget) {
+        //    var oDiv = document.getElementById("div1");
+
+        //    clearTimeout(timer);
+        //    timer = setInterval(function () {
+        //        //var iSpeed = (iTarget - oDiv.offsetLeft) / 8;
+        //        //iSpeed = iTarget > oDiv.offsetLeft ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+        //        var iSpeed = 5;
+        //        iSpeed = iTarget > oDiv.offsetLeft ? iSpeed = 7 : iSpeed = -7;
+                
+        //        if (Math.abs(oDiv.offsetLeft - iTarget) < 7)//终止条件是距离足够近//改变点1
+        //        {
+        //            clearInterval(timer);
+        //            oDiv.style.left = iTarget + "px";//改变点2
+        //        }
+        //        else {
+        //            oDiv.style.left = oDiv.offsetLeft + iSpeed + "px";
+
+        //        }
+        //    }, 30);
+        // }
+    </script>
+</head>
+<body>
+    <!--运动框架-->
+    <!--<input id="btn1"type="button" value="开始运动" />
+    <div id="div1"></div>-->
+
+    <!--运动框架实例-->
+    <!-- <div id="div1">
+        <span id="txt1">分享到</span>
+    </div> -->
+
+    <!--淡入淡出的图片-->
+    <!-- <img id="img1" src="../Sports Course/Desert.jpg" /> -->
+
+    <!--缓冲运动-->
+    <!-- <input id="btn1"type="button" value="开始运动" />
+    <div id="div1"></div>
+    <span id="span1"></span> -->
+
+    <!--练习-->
+    <!--<div id="div1"></div>-->
+
+    <!--运动的终止条件-->
+    <!-- <input id="btn1" type="button" value="开始运动" />
+    <div id="div1"></div>
+    <span id="span1"></span> -->
+</body>
+</html>

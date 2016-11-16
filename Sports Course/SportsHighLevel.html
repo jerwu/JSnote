@@ -1,0 +1,534 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>运动高级课程</title>
+    <!--链式运动框架-->
+    <style>
+       /* #div1{width:100px;height:100px;background-color:red;filter:alpha(opacity=30);opacity:0.3;position: absolute;}*/
+    </style>
+    <script>
+        // window.onload = function () {
+        //    var oDiv = document.getElementById("div1");
+
+        //    oDiv.onmouseover = function () {
+        //        startMove(oDiv, "width", 300, function () {
+        //            startMove(oDiv, "height", 300, function () {
+        //                startMove(oDiv, "opacity", 100);
+        //            })
+        //        })
+        //    }
+
+        //    oDiv.onmouseout = function () {
+        //        startMove(oDiv, "opacity", 30, function () {
+        //            startMove(oDiv, "height", 100, function () {
+        //                startMove(oDiv, "width", 100);
+        //            })
+        //        })
+        //    }
+        // }
+
+        // function getStyle(obj, attr) {
+        //    if (obj.currentStyle) {
+        //        return obj.currentStyle[attr];
+        //    }
+        //    else {
+        //        return getComputedStyle(obj, false)[attr];
+        //    }
+        // }
+
+        // function startMove(obj,attr,iTarget,fn) {
+        //    clearInterval(obj.timer);
+        //    obj.timer = setInterval(function () {
+        //        var iCur = 0;
+        //        if (attr == "opacity") {
+        //            iCur = parseInt(parseFloat(getStyle(obj, attr)) * 100);
+        //        }
+        //        else {
+        //            iCur = parseInt(getStyle(obj, attr));
+        //        }
+
+        //        var iSpeed = (iTarget - iCur) / 8;
+        //        iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+
+        //        if (iCur==iTarget) {
+        //            clearInterval(obj.timer);
+                    
+        //            if (fn) {
+        //                fn();
+        //            }
+        //        }
+        //        else {
+        //            if (attr == "opacity") {
+        //                obj.style.filter = "alpha(opacity:" + (iCur + iSpeed) + ")";
+        //                obj.style.opacity = (iCur + iSpeed) / 100;
+        //            }
+        //            else {
+        //                obj.style[attr] = iCur + iSpeed + "px";
+        //            }
+        //        }
+        //    }, 30);
+        // }
+    </script>
+
+    <!--链式运动实例-->
+    <style>
+        /*#but_show{width:60px;height:60px;position:absolute;left:0;top:0;display:block;background-color:#808080;z-index:3;}
+        #div1{width:120px;height:60px;background-color:#0094ff;position:absolute;left:-120px;top:0;z-index:2;}
+        #div2{width:120px;height:200px;background-color:#ff0000;position:absolute;top:-60px;left:60px;display:none;z-index:1;}
+        #btn_close{width:60px;height:30px;position:absolute;left:20px;top:20px;background-color:#808080;}*/
+    </style>
+    <!-- <script src="SportsFramework/LineSportsFramework.js"></script> -->
+    <script>
+        // window.onload = function () {
+        //    var div1 = document.getElementById("div1");
+        //    var btnshow = document.getElementById("but_show");
+        //    var div2 = document.getElementById("div2");
+        //    var btnclose = document.getElementById("btn_close");
+
+        //    btnshow.onclick = function () {
+        //        startMove(div1, "left", 60, function () {
+        //            div2.style.display = "block";
+        //            startMove(div2, "top", 60);
+        //        });
+        //    }
+
+        //    btnclose.onclick = function () {
+        //        startMove(div2, "top", -120, function () {
+        //            div2.style.display = "none";
+        //            startMove(div1, "left", -60);
+        //            //存在问题，搜回去的时候，红块还没收完，蓝块就已经在开始收了
+        //        })
+        //    }
+        // }
+    </script>
+
+    <!--多值运动框架-->
+    <style>
+        /*#div1{width:100px;height:100px;background-color:red;}*/
+    </style>
+    <script>
+        // window.onload = function () {
+        //    var oBtn = document.getElementById("btn1");
+        //    var oDiv = document.getElementById("div1");
+
+        //    oBtn.onclick = function () {
+        //        startMove(div1,{"height":300,"width":300})
+        //    }
+        // }
+
+        // function getStyle(obj, attr) {
+        //    if (obj.currentStyle) {
+        //        return obj.currentStyle[attr];
+        //    }
+        //    else {
+        //        return getComputedStyle(obj, false)[attr];
+        //    }
+        // }
+
+        // function startMove(obj,json) {
+        //    clearInterval(obj.timer);
+
+        //    obj.timer = setInterval(function () {
+        //        var iCur = 0;
+        //        for (var attr in json) {
+        //                 //取当前值
+        //            if (attr == "opacity") {
+        //                iCur = parseInt(parseFloat(getStyle(obj, attr)) * 100);
+        //            }
+        //            else {
+        //                iCur = parseInt(getStyle(obj, attr));
+        //            }
+
+        //                 //算速度
+        //            var iSpeed = (json[attr] - iCur) / 8;
+        //            iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+
+        //                 //检测停止
+        //            if (iCur == json[attr]) {
+        //                clearInterval(obj.timer);
+        //            }
+        //            else {
+        //                if (attr == "opacity") {
+        //                    obj.style.filter = "alpha(opacity=" + (iCur + iSpeed) + ")";
+        //                    obj.style.opacity = (iCur + iSpeed) / 100;
+        //                }
+        //                else {
+        //                    obj.style[attr] = iCur + iSpeed + "px";
+        //                }
+        //            }
+        //        }
+        //    }, 30);
+        // }
+    </script>
+
+    <!--样式设置-->
+    <style>
+        /*#div1{width:100px;height:100px;background-color:red;}*/
+    </style>
+    <script>
+        // function setStyle(obj, json) {
+        //    for (var attr in json) {
+        //        obj.style[attr] = json[attr];
+        //    }
+        // }
+
+        // window.onload = function () {
+        //    var oDiv = document.getElementById("div1");
+        //    var oBtn = document.getElementById("btn1");
+
+        //    oBtn.onclick = function () {
+        //        setStyle(oDiv, { width: "300px", height: "300px", background:"blue"  })
+        //    }
+        // }
+    </script>
+
+    <!--完美运动框架-->
+    <style>
+        /*#div1{width:100px;height:100px;background-color:red;}*/
+    </style>
+    <script>
+        // window.onload = function () {
+        //    var oDiv = document.getElementById("div1");
+        //    var oBtn = document.getElementById("btn1");
+
+        //    oBtn.onclick = function () {
+        //        //startMove(oDiv, { width: 102, height: 300, });//这种情况下，宽比高早很多达到目标值，然后定时器就关闭了，所以高还没走完就停止了
+        //        //解决办法：在循环外面去做判断
+
+        //        startMove(oDiv, { width: 102, height: 300, });
+        //    }
+        // }
+
+        // function getStyle(obj, attr) {
+        //    if (obj.currentStyle) {
+        //        return obj.currentStyle[attr];
+        //    }
+        //    else {
+        //        return getComputedStyle(obj, false)[attr];
+        //    }
+        // }
+
+        // function startMove(obj, json,fn) {
+        //    clearInterval(obj.timer);
+
+        //    obj.timer = setInterval(function () {
+        //        var iCur = 0;
+        //        var bStop = true;//忘了添加一个bStop来检测json里面的值是否都到了目标位置
+        //        for (var attr in json) {
+        //            if (attr == "opacity") {
+        //                iCur = parseInt(parseFloat(getStyle(obj, attr)) * 100);
+        //            }
+        //            else {
+        //                iCur = parseInt(getStyle(obj, attr));
+        //            }
+
+        //            var iSpeed = (json[attr] - iCur) / 8;
+        //            iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+
+        //            if (iCur != json[attr]) {
+        //                bStop = false;
+        //            }
+
+        //            if (attr == "opacity") {
+        //                obj.style.filter = "alpha(opacity=" + (iCur + iSpeed) + ")";
+        //                obj.style.opacity = (iCur + iSpeed) / 100;
+        //            }
+        //            else {
+        //                obj.style[attr] = iCur + iSpeed + "px";
+        //            }
+        //        }
+                
+        //        if (bStop) {
+        //            clearInterval(obj.timer);
+
+        //            if (fn) {
+        //                fn();
+        //            }
+        //        }
+
+        //    }, 30);
+        // }
+    </script>
+
+    <!--完美运动框架：实例（伸缩同时淡入淡出的菜单）-->
+    <style>
+        /**{margin:0;padding:0;}
+        #ul1 li{width:100px;height:20px;line-height:20px;text-align:center;position:relative;list-style:none;float:left;background-color:blue;border:1px solid black;}
+        #ul1 li div{background-color:#ccc;overflow:hidden;height:0;position:absolute;top:20px;width:100%;filter:alpha(opacity=0);opacity:0;}*/
+    </style>
+    <!-- <script src="SportsFramework/PerfectSportsFramework.js"></script> -->
+    <script>
+        
+        // window.onload = function () {
+        //    var oUl = document.getElementById("ul1");
+        //    var oLi = oUl.getElementsByTagName("li");
+
+        //    for (var i = 0; i < oLi.length; i++) {
+        //        //疑问：为什么这里面没有代码提示(也许用了visual studio不支持的代码书写方式，就像函数getClass那种，但是浏览器支持书写)
+        //        oLi[i].onmouseover = function () {
+        //            var oDiv = this.getElementsByTagName("div")[0];
+                    
+        //            oDiv.style.height = "auto";
+        //            var iHeight = oDiv.offsetHeight;
+        //            oDiv.style.height = 0;
+                    
+        //            startMove(oDiv, { "opacity": 100, height: iHeight });
+        //        }
+
+        //        oLi[i].onmouseout = function () {
+        //            var oDiv = this.getElementsByTagName("div")[0];
+                    
+        //            startMove(oDiv, { "opacity": 0, height: 0 });
+        //        }
+        //    }
+
+        // }
+    </script>
+
+    <!--多图片展开、收缩-->
+    <style>
+       /* *{margin:0;padding:0}
+        #ul1{width:366px;margin:0 auto;position:relative;}
+        #ul1 li{list-style:none;width:100px;height:100px;background-color:#ccc;margin:10px;float:left;border:1px solid black;text-align:center;z-index:1}*/
+    </style>
+    <!-- <script src="SportsFramework/PerfectSportsFramework.js"></script> -->
+    <script>
+        // window.onload = function () {
+        //    var oUl = document.getElementById("ul1");
+        //    var oLi = oUl.getElementsByTagName("li");
+        //    var iNowZindex = 2;//解决层级问题
+            
+        //    //布局转换
+        //    for (var i = 0; i < oLi.length; i++) {
+        //        oLi[i].innerHTML = "left:" + oLi[i].offsetLeft + "top:" + oLi[i].offsetTop;
+        //        oLi[i].style.left = oLi[i].offsetLeft + "px";
+        //        oLi[i].style.top = oLi[i].offsetTop + "px";
+        //    }
+
+        //    for (var i = 0; i < oLi.length; i++) {
+        //        oLi[i].style.position = "absolute";
+        //        oLi[i].style.margin = 0;
+        //    }
+
+        //    //加事件
+        //    for (var i = 0; i < oLi.length; i++) {
+        //        //marginleft和marginTop的值：（变化后的width-变化前的width）/2
+        //        oLi[i].onmouseover = function () {
+        //            this.style.zIndex = iNowZindex++;//解决层级问题
+        //            startMove(this, { width: "130", height: "130", marginLeft: "-15", marginTop: "-15", });
+        //        }
+
+        //        oLi[i].onmouseout = function () {
+        //            startMove(this, { width: "100", height: "100", marginLeft: "0", marginTop: "0", });
+        //        }
+        //    }
+        // }
+    </script>
+
+    <!--新浪微博：实例2-->
+    <style>
+       /* *{margin:0;padding:0;}
+        #ul1{width:300px;height:300px;border:1px solid black;margin:10px auto;}
+        #ul1 li{list-style:none;border-bottom:1px dashed #999;padding:2px;filter:alpha(opacity=0);opacity:0;overflow:hidden;}*/
+    </style>
+    <!-- <script src="SportsFramework/PerfectSportsFramework.js"></script> -->
+    <script>
+        // window.onload = function () {
+        //    var oUl = document.getElementById("ul1");
+        //    var oBtn = document.getElementById("btn1");
+        //    var oTxt = document.getElementById("txt1");
+            
+        //    function tiJiao() {
+        //        var oLi = document.createElement("li");
+        //        var aLi = oUl.getElementsByTagName("li");
+
+        //        if (oTxt.value == "") {
+        //            return false;
+        //        }
+
+        //        oLi.innerHTML = oTxt.value;
+        //        oTxt.value = "";
+
+        //        if (aLi.length) {
+        //            oUl.insertBefore(oLi, aLi[0]);
+        //        }
+        //        else {
+        //            oUl.appendChild(oLi);
+        //        }
+
+        //        var iHeight = oLi.offsetHeight;
+        //        oLi.style.height = 0;
+        //        startMove(oLi, { height: iHeight, }, function () {
+        //            startMove(oLi, { opacity: 100, });
+        //        })
+        //    }
+
+        //    oBtn.onclick = function () {
+        //        tiJiao();
+        //    }
+
+        //    oTxt.onkeydown = function (ev)//事件加错位置，应该加在otxt上而不是obtn上
+        //    {
+        //        var oEvent = ev || event;
+
+        //        if (oEvent.keyCode == 13) {
+        //            tiJiao();
+        //            return false;
+        //        }
+        //    }
+        // }
+    </script>
+
+    <!--无缝滚动-->
+    <style>
+        /**{margin:0;padding:0;}
+        #div1{position:relative;border:1px solid black;width:680px;height:132px;margin:10px auto;overflow:hidden;}
+        #ul1{position:absolute;z-index:2;}
+        #ul1 li{list-style:none; float:left;width:150px;height:112px;padding:10px;}
+        #ul1 li img{width:150px;}
+        .btn{width:60px;height:60px;background-color:blue;}
+        #btnLeft {}
+        #btnRight{}*/
+    </style>
+    <!-- <script src="SportsFramework/PerfectSportsFramework.js"></script> -->
+    <script>
+        // window.onload = function () {
+        //     var oDiv = document.getElementById("div1");
+        //     var oUl = document.getElementById("ul1");
+        //     var aLi = oUl.getElementsByTagName("li");
+
+        //     var btnLeft = document.getElementById("btnLeft");
+        //     var btnRight = document.getElementById("btnRight");
+        //     var timer = null;
+        //     var iSpeed=-1;
+
+        //     oUl.innerHTML+=oUl.innerHTML;
+        //     oUl.style.width = aLi.length * aLi[0].offsetWidth + "px";
+        //     // alert(oUl.children.length);
+        //     function FnMove() {
+        //         if (oUl.offsetLeft < -oUl.offsetWidth / 2) {
+        //             oUl.style.left = 0;
+        //         }
+        //         else if (oUl.offsetLeft >= 0) {
+        //             oUl.style.left = -oUl.offsetWidth / 2 + "px";
+        //         }
+        //         oUl.style.left = oUl.offsetLeft - iSpeed + "px";
+        //     }
+
+        //     timer = setInterval(FnMove, 30);
+            
+        //     oDiv.onmouseover = function () {
+        //         clearInterval(timer);
+
+        //     }
+
+        //     oDiv.onmouseout = function () {
+        //         timer=setInterval(FnMove, 30)
+        //     }
+
+        //     btnLeft.onclick = function () {
+        //         iSpeed = 1;
+        //     }
+
+        //     btnRight.onclick = function () {
+        //         iSpeed = -1;
+        //     }
+        // }
+    </script>
+</head>
+<body>
+    <!--链式运动框架-->
+    <!-- <div id="div1"></div> -->
+
+    <!--链式运动实例-->
+    <!-- <div id="div1"></div>
+    <a id="but_show" href="#">点击</a>
+    <div id="div2">
+        <input id="btn_close" type="button" value="关闭" />
+    </div> -->
+    
+    <!--多值运动框架-->
+    <!-- <input id="btn1" type="button" value="BeginMove" />
+    <div id="div1"></div> -->
+
+    <!--样式设置-->
+    <!-- <input id="btn1" type="button" value="BeginMove" />
+    <div id="div1"></div> -->
+
+    <!--完美运动框架-->
+    <!-- <input id="btn1" type="button" value="BeginMove" />
+    <div id="div1"></div> -->
+
+    <!--完美运动框架：实例（伸缩同时淡入淡出的菜单）-->
+    <!-- <ul id="ul1"> 
+        <li>
+            首页
+            <div>
+                人之初<br />
+                性本善<br />
+                性相近<br />
+                习相远<br />
+                苟不教
+            </div>
+        </li>
+       
+        <li>
+            特点
+            <div>
+                性乃迁<br />
+                教之道<br />
+                贵以专<br />
+                昔孟母<br />
+                择邻处<br />
+                子不学
+            </div>
+        </li>
+        
+        <li>
+            关于
+            <div>
+                断机杼窦燕山<br />
+                养不教<br />
+                有义方<br />
+                父之过<br />
+                名俱扬<br />
+                教五子<br />
+                教不严
+            </div>
+        </li>
+    </ul> -->
+
+    <!--多图片展开、收缩：实例1-->
+    <!-- <ul id="ul1">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+ -->
+    <!--新浪微博：实例2-->
+    <!--可以把ul改为div会更流畅-->
+    <!-- <textarea id="txt1" rows="10" cols="40"></textarea><br />
+    <input id="btn1" value="提交" type="button" />
+    <ul id="ul1">
+    </ul> -->
+
+    <!--无缝滚动-->
+        <!-- <div id="div1">
+            <ul id="ul1">
+                <li><img src="img/1.jpg" /></li>
+                <li><img src="img/2.jpg" /></li>
+                <li><img src="img/3.jpg" /></li>
+                <li><img src="img/4.jpg" /></li>
+            </ul>
+        </div>
+        <img src="img/btn.gif" id="btnLeft" class="btn" />
+        <img src="img/btn.gif" id="btnRight" class="btn" /> -->
+</body>
+</html>

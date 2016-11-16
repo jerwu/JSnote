@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>cookie practice</title>
+    <script type="text/javascript">
+        //document.cookie = "name=blue";
+        //document.cookie = "pass=123456";
+        //alert(document.cookie);  
+
+        //----------------------
+        //var oData = new Date();
+        //oData.setDate(oData.getDate() + 30);
+
+        //document.cookie = "name=balck;expires=" + oData;
+        //document.cookie = "pass=123448556";
+        //alert(document.cookie);
+        //alert(oData.getFullYear() + "-" + oData.getMonth() + "-" + oData.getDay());
+
+        //----------------------封装 设置cookie函数
+        //function SetCookie(name,value,iDay)
+        //{
+        //    var oDate = new Date();
+
+        //    oDate.setDate(oDate.getDate() + iDay);
+            
+        //    document.cookie = name + "=" + value + ";expires=" + oDate;
+        //}
+
+        //----------------------封装 获取cookie函数
+        //function GetCookie(name) {
+        //    var arr = document.cookie.split("; ");//用分号空格
+
+        //    for (var i = 0; i < arr.length; i++) {
+        //        var arr2 = arr[i].split("=");
+
+        //        if (arr2[0] == name) {
+        //            return arr2[1];
+        //        }
+        //        return "";
+        //    }
+            
+        //}
+
+        //----------------------封装 删除cookie函数
+        //function DeleteCookie(name)
+        //{
+        //    SetCookie(name, "1", -1);
+        //}
+
+        //SetCookie("username", "white", 30);
+        //SetCookie("password", "123456789", 300);
+
+        //alert(GetCookie("username"));
+        ////DeleteCookie("username");
+        ////alert(GetCookie("username"));
+
+        //alert(document.cookie);
+
+        //----------------------cookie的使用--建议拖拽
+
+
+    </script>
+    <script>
+        //function setCookie(name, value, iDay) {
+        //    var oDate = new Date();
+
+        //    oDate.setDate(oDate.getDate() + iDay);
+
+        //    document.cookie = name + '=' + value + ';expires=' + oDate;
+        //}
+
+        //function getCookie(name) {
+        //    //'username=abc; password=123456; aaa=123; bbb=4r4er'
+        //    var arr = document.cookie.split('; ');
+        //    var i = 0;
+
+        //    //arr->['username=abc', 'password=123456', ...]
+
+        //    for (i = 0; i < arr.length; i++) {
+        //        //arr2->['username', 'abc']
+        //        var arr2 = arr[i].split('=');
+
+        //        if (arr2[0] == name) {
+        //            return arr2[1];
+        //        }
+        //    }
+
+        //    return '';
+        //}
+
+        //function removeCookie(name) {
+        //    setCookie(name, '1', -1);
+        //}
+
+        //window.onload = function () {
+        //    var oDiv = document.getElementById('div1');
+        //    var disX = 0;
+        //    var disY = 0;
+
+        //    var x = getCookie('x');
+        //    var y = getCookie('y');
+
+        //    if (x) {
+        //        oDiv.style.left = x + 'px';
+        //        oDiv.style.top = y + 'px';
+        //    }
+
+        //    oDiv.onmousedown = function (ev) {
+        //        var oEvent = ev || event;
+
+        //        disX = oEvent.clientX - oDiv.offsetLeft;
+        //        disY = oEvent.clientY - oDiv.offsetTop;
+
+        //        document.onmousemove = function (ev) {
+        //            var oEvent = ev || event;
+
+        //            oDiv.style.left = oEvent.clientX - disX + 'px';
+        //            oDiv.style.top = oEvent.clientY - disY + 'px';
+        //        }
+
+        //        document.onmouseup = function () {
+        //            document.onmousemove = null;
+        //            document.onmouseup = null;
+
+        //            setCookie('x', oDiv.offsetLeft, 5);
+        //            setCookie('y', oDiv.offsetTop, 5);
+        //        }
+
+        //        return false;
+        //    }
+        //}
+    </script>
+
+
+    <script type="text/javascript">
+    function setCookie(name, value, iDay) {
+        var oDate = new Date();
+        oDate.setDate(oDate.getDate() + iDay);
+
+        document.cookie = name + '=' + value + ';expires=' + oDate;
+    }
+
+    function getCookie(name) {
+        var arr = document.cookie.split(" ;");
+
+        var i = 0;
+
+        for (var i = 0; i < arr.length; i++) {
+            var myArr = arr[i].split("=");
+
+            if (myArr[0] == name) {
+                return myArr[1];
+            }
+        }
+
+        return "";
+    }
+
+    function removeCookie(name) {
+        setCookie(name, "1", -1);
+    }
+
+    window.onload = function () {
+        var oDiv1 = document.getElementById("div1");
+        var disX = 0;
+        var disY = 0;
+
+        var x = getCookie("x");
+        var y = getCookie("y");
+
+        if (x) {
+            oDiv1.style.left = x + "px";
+            oDiv1.style.top = y + "px";
+        }
+        oDiv1.onmousedown = function (ev) {
+            var oEvent = ev || event;
+            disX = oEvent.clientX - oDiv1.offsetLeft;
+            disY = oEvent.clientY - oDiv1.offsetTop;
+
+            document.onmousemove = function (ev) {
+                var oEvent = ev || event;
+                oDiv1.style.left = oEvent.clientX - disX + "px";
+                oDiv1.style.top = oEvent.clientY - disY + "px";
+
+            }
+
+            document.onmouseup = function () {
+                document.onmouseup = null;
+                document.onmousemove = null;
+
+                setCookie("x", oDiv1.offsetLeft, 5);
+                setCookie("y", oDiv1.offsetTop, 5);
+            }
+            return false;
+        }
+    }
+    </script>
+    <style type="text/css">
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position:absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <!--<style >#div1{width:100px;height:100px;background-color:red;position:absolute;}</style>-->
+    <script>
+        //div的上下左右移动
+        //window.onload = function () {
+        //    var div1 = document.getElementById("div1");
+
+        //    document.onkeydown = function (ev) {
+        //        var oEvent = ev || event;
+
+        //        if (oEvent.keyCode == 37) {
+        //            div1.style.left = div1.offsetLeft - 10 + "px";
+        //        }
+
+        //        else if (oEvent.keyCode == 39) {
+        //            div1.style.left = div1.offsetLeft + 10 + "px";
+        //        }
+
+        //        if (oEvent.keyCode == 38) {
+        //            div1.style.top = div1.offsetTop - 10 + "px";
+        //        }
+
+        //        else if (oEvent.keyCode == 40) {
+        //            div1.style.top = div1.offsetTop + 10 + "px";
+        //        }
+
+                
+        //        //keycode
+        //        //左       37
+        //        //上       38
+        //        //右       39
+        //        //下       40
+
+        //        //问题：用JS代码实现div的移动不能出到可视区的外面
+        //        //问题2：用JS代码解决div移动卡顿的问题
+        //    }
+        //}
+    </script>
+
+    <style>#txt1{width:500px;height:200px}</style>
+    <script>
+        window.onload = function () {
+            var txt1 = document.getElementById("txt1");
+            var txt2 = document.getElementById("txt2");
+            var btn1 = document.getElementById("btn1");
+
+            //button提交
+            //btn1.onclick = function () {
+            //    txt1.value += txt2.value;
+            //}
+            
+            //enter提交
+            //document.onkeydown = function (ev) {
+            //    var oEvent = ev || event;
+            //    if (oEvent.keyCode==13) {
+            //        txt1.value += txt2.value;
+            //    } 
+            //}
+
+            //ctrl加enter提交
+            txt2.onkeydown = function (ev) {
+                var oEvent = ev || event;
+                if (oEvent.ctrlKey && oEvent.keyCode == 13) {
+                    txt1.value += txt2.value+"\n";
+                    txt2.value = "";
+                }
+                //问题：如果txt2里的内容为空就不提交
+                //if (txt2.value=="") {
+
+                //}
+            }
+        }
+    </script>
+</head>
+<body>
+    <!--<div id="div1"></div>-->
+
+    <textarea id="txt1"></textarea>
+    <br />
+    <input id="txt2" type="text" />
+    <input id="btn1" type="button" value="提交"/>
+</body>
+</html>

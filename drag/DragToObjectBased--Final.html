@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>拖拽的面向对象转换结果</title>
+    <script>
+        //window.onload = function () {
+        //    new MyDrag("div1");
+        //}
+
+        //function MyDrag(id) {
+        //    var _this = this;
+        //    this.disX = 0;
+        //    this.disY = 0;
+        //    this.l = 0;
+        //    this.t = 0;
+        //    this.oDiv = document.getElementById(id);
+        //    this.oDiv.onmousedown = function () {
+        //        _this.MouseDown();
+        //    };
+        //}
+
+        //MyDrag.prototype.MouseDown= function (ev) {
+        //    var oEvent = ev || event;
+        //    var _this = this;
+        //    this.disX = oEvent.clientX - this.oDiv.offsetLeft;
+        //    this.disY = oEvent.clientY - this.toDiv.offsetTop;
+
+        //    document.onmousemove = function () {
+        //        _this.MouseMove();
+        //    }
+
+        //    document.onmouseup = function () {
+        //        _this.MouseUp();
+        //    }
+        //}
+
+        //MyDrag.prototype.MouseMove= function (ev) {
+        //    var oEvent = ev || event;
+        //    //oDiv.style.left = oEvent.clientX - disX + "px";
+        //    //oDiv.style.top = oEvent.clientY - disY + "px";
+
+        //    this.l = oEvent.clientX - this.disX;
+        //    this.t = oEvent.clientY - this.disY;
+
+        //    if (this.l < 0) {
+        //        this.l = 0;
+        //    }
+        //    else if (this.l > document.documentElement.clientWidth - this.oDiv.offsetWidth) {
+        //        this.l = document.documentElement.clientWidth - this.oDiv.offsetWidth;
+        //    }
+        //    if (this.t < 0) {
+        //        this.t = 0;
+        //    }
+        //    else if (this.t > document.documentElement.clientHeight - this.oDiv.offsetHeight) {
+        //        this.t = document.documentElement.clientHeight - this.oDiv.offsetHeight;
+        //    }
+        //    this.oDiv.style.left = this.l + "px";
+        //    this.oDiv.style.top = this.t + "px";
+        //}
+
+
+        //MyDrag.prototype.MouseUp= function () {
+        //    document.onmousemove = null;
+        //    document.onmouseup = null;
+        //}
+    </script>
+    <script>
+        ////把拖拽改写成对于面向对象的形式
+        //function MouseDown(ev) {
+        //    var oEvent = ev || event;
+        //    var disX = oEvent.clientX - oDiv.offsetLeft;
+        //    var disY = oEvent.clientY - oDiv.offsetTop;
+        //}
+
+        //function MouseMove(ev) {
+        //    var oEvent = ev || event;
+        //    //oDiv.style.left = oEvent.clientX - disX + "px";
+        //    //oDiv.style.top = oEvent.clientY - disY + "px";
+
+        //    var l = oEvent.clientX - disX;
+        //    var t = oEvent.clientY - disY;
+
+        //    if (l<0) {
+        //        l = 0;
+        //    }
+        //    else if (l > document.documentElement.clientWidth - oDiv.offsetWidth) {
+        //        l = document.documentElement.clientWidth - oDiv.offsetWidth;
+        //    }
+        //    if (t < 0) {
+        //        t = 0;
+        //    }
+        //    else if (t > document.documentElement.clientHeight - oDiv.offsetHeight) {
+        //        t = document.documentElement.clientHeight - oDiv.offsetHeight;
+        //    }
+        //    oDiv.style.left = l + "px";
+        //    oDiv.style.top = t + "px";
+        //}
+
+        //function MouseUp() {
+        //    document.onmousemove = null;
+        //    document.onmouseup = null;
+        //}
+    </script>
+</head>
+
+<body>
+    <div id="div1" style="width:100px;height:100px;background-color:#0094ff;position:absolute"></div>
+</body>
+</html>

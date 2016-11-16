@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>自定义拖拽与鼠标滚轮</title>
+    <!--自定义拖拽-->
+    <style type="text/css">
+        #parent{width:400px;height:20px;background-color:#808080;position:relative;}
+        #div1{width:20px;height:20px;background-color:#0094ff;position:absolute;}
+        /*#div2{width:200px;height:200px;position:absolute;background-color:red; filter:alpha(opacity:0);opacity:0;}/*透明度*/
+        #div2{width:200px;height:200px;position:relative;overflow:hidden;}
+        #div3{position:absolute;}
+    </style>
+    <script>
+        window.onload=function ()
+        {
+            var oDiv=document.getElementById('div1');
+            var oParent = document.getElementById("parent");
+            var div2 = document.getElementById("div2");
+            var div3 = document.getElementById("div3");
+
+	        oDiv.onmousedown=function (ev)
+	        {
+		        var oEvent=ev||event;
+		        var disX=oEvent.clientX-oDiv.offsetLeft;
+
+		        document.onmousemove=function (ev)
+		        {
+			        var oEvent=ev||event;
+			        var l = oEvent.clientX - disX;
+
+			        if (l<0) {
+			            l = 0;
+			        }
+			        else if (l>oParent.offsetWidth-oDiv.offsetWidth) {
+			            l = oParent.offsetWidth - oDiv.offsetWidth;
+			        }
+
+			        oDiv.style.left = l + 'px';
+
+			        var scale = l / (oParent.offsetWidth - oDiv.offsetWidth);
+
+                    //例一：控制物体大小
+			        //div2.style.width = scale * 300 + "px";
+		            //div2.style.height = scale * 300 + "px";
+
+                    //例二控制物体透明度
+			        //div2.style.filter = "alpha(opacity:'+100*scale')";
+			        //div2.style.opacity = scale;//错误：对透明度不熟悉，忘了写这一句，目的是为了兼容
+
+		            //例三：控制文字的滚动
+			        div3.style.top = -(div3.offsetHeight - div2.offsetHeight) * scale + "px";
+		        };
+
+		        document.onmouseup=function ()
+		        {
+			        document.onmousemove=null;
+			        document.onmouseup=null;
+		        };
+	        };
+        };
+    </script>
+
+    <!--鼠标滚轮-->
+    <style>
+        /*#div1{width:100px;height:100px;background-color:blue;}*/
+    </style>
+    <script>
+        //错误记录
+        //function myAddEvent(obj, sEvent, fn) {
+        //    if (obj.attachEvent) {
+        //        obj.attachEvent('on' + sEvent, fn);
+        //    }
+        //    else {
+        //        obj.addEventListener(sEvent, fn, false);
+        //    }
+        //}
+
+        //window.onload = function () {
+        //    var div1 = document.getElementById("div1");
+        //    function onMouseWheel() {
+        //        alert("a");
+        //    }
+
+        //    myAddEvent(div1, "DOMMouseScroll", onMouseWheel);
+        //    myAddEvent(div1, "mousewheel", onMouseWheel);
+        //    出错点：不要写成div1.myAddEvent(div1, "mousewheel", onMouseWheel);或div1.myAddEvent("div1", "mousewheel", onMouseWheel);
+
+            //IE        attachEvent    onMouseWheel 
+            //CHROME    add            onMouseWheel
+            //FF        add            DOMMouseScroll
+
+            //div1.onmousewheel = function () {
+            //    alert("a");
+            //}
+
+            //对于edge浏览器存在事件冒泡,但检测后发现并不是事件冒泡，问题依然存在
+
+            //div1.addEventListener("DOMMouseScroll", function () { alert("a") }, false);
+        //}
+    </script>
+
+    <script>
+        //function myAddEvent(obj, sEvent, fn) {
+        //    if (obj.attachEvent) {
+        //        obj.attachEvent('on' + sEvent, fn);
+        //    }
+        //    else {
+        //        obj.addEventListener(sEvent, fn, false);
+        //    }
+        //}
+
+        //window.onload = function () {
+        //    var div1 = document.getElementById("div1");
+
+        //    function onMouseWheel(ev) {
+        //        var oEvent = ev || event;
+        //        var BDown = true;
+
+        //       BDown = oEvent.wheelDelta ? oEvent.wheelDelta < 0 : oEvent.detail > 0;
+                //三目表达式
+                //BDown=oEvent.wheelDelta?(oEvent.wheelDelta<0?bDown=true:bDown=false):(oEvent.detail>0?bDown=true:bDown=false)
+                //BDown=oEvent.wheelDelta?oEvent.wheelDelta<0:oEvent.detail>0;
+        //        if (BDown) {
+        //            div1.style.height = div1.offsetHeight + 10 + "px";
+        //        }
+        //        else {
+        //            div1.style.height = div1.offsetHeight - 10 + "px";
+        //        }
+        //        oEvent.preventDefault();//preventDefault没有代码提示
+        //        //阻止默认事件，所有浏览器都用这个，return false不管用了；
+
+        //        //if (oEvent.wheelDelta) {
+        //        //    if (oEvent.wheelDelta > 0) {
+        //        //        BDown = false;
+        //        //    }
+        //        //    else {
+        //        //        BDown = true;
+        //        //    }
+        //        //}
+        //        //else if (oEvent.detail) {
+        //        //    if (oEvent.detail>0) {
+        //        //        BDown = true;
+        //        //    }
+        //        //    else {
+        //        //        BDown = false;
+        //        //    }
+        //        //}
+        //        //alert(oEvent.detail);//不知道detail为什么没有代码提示
+        //    }
+
+        //    myAddEvent(div1, "DOMMouseScroll", onMouseWheel);
+        //    myAddEvent(div1, "mousewheel", onMouseWheel);
+        //}
+    </script>
+</head>
+<body >
+    <!--自定义拖拽-->
+    <div id="parent">
+        <div id="div1"></div>
+    </div>
+
+    <div id="div2">
+        <div id="div3">
+            2015年12月大学英语六级翻译预测：古典文化
+            Directions:
+            For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.
+            党的十八大以来，习近平总书记发表了一系列重要讲话、文章、访谈，形成了富有个性的话语风格。善于用典是其特点之一。习近平总书记经常运用古代诗词中的经典名句，说明当今人们生活实践中的重大问题，不断激活中华民族优秀传统文化基因，赋予其鲜明的时代内涵。诗词作为中国文化的一块瑰宝，不仅仅被一代代中国人传颂，也被翻译成了英语，被外国人引用。“多少事，从来急;天地转，光阴迫。一万年太久，只争朝夕!”现在就是我们只争朝夕传承中国古典文化的时候了。
+            参考译文：
+            Since the convening of the Eighteenth National Congress of the CPC, General Secretary Xi Jinping has made a series of important speeches, essays and interviews with an individualistic discourse style. Citing allusion is one of its characteristics. General Secretary Xi Jinping often uses the classic sentences in ancient poetry to show the major issues in the living practice of today’s people and to continually activate the Chinese nation’s outstanding traditional culture genes, which gives it a distinct connotation of the time. As a treasure of Chinese culture, ancient poetry is not just widely celebrated by generations of Chinese people, also has been translated into English and referenced by foreigners. “So many deeds cry out to be done, and always urgently; the world rolls on, time presses. Ten thousand years are too long; seize the day, seize the hour!” This is the hour for us to keep and inherit our traditional culture.
+        </div>
+    </div>
+
+    <!--鼠标滚轮-->
+    <!--<div id="div1"></div>-->
+</body>
+</html>

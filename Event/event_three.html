@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style>
+        #ul1{width:200px;height:300px;display:none;position:absolute}/*错误出在没给div的position设置绝对定位，一直局限在给JS代码找错误*/
+    </style>
+    <script>
+        window.onload = function () {
+            document.oncontextmenu = function (ev) {
+                var oEvent = ev || event;
+                var oul = document.getElementById("ul1");
+
+                oul.style.display = "block";
+                oul.style.left = oEvent.clientX + "px";
+                oul.style.top = oEvent.clientY + "px";
+
+                return false;
+            }
+            document.onclick = function () {
+                var oul = document.getElementById("ul1");
+                oul.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <ul id="ul1">
+        <li><a href="#">查看</a></li>
+        <li><a href="#">排序方式</a></li>
+        <li><a href="#">刷新</a></li>
+        <li><a href="#">复制</a></li>
+    </ul>
+</body>
+</html>

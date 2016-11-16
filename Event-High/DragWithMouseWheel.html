@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>自定义拖拽结合鼠标滚轮</title>
+    <style>
+        #parent{width:400px;height:20px;background-color:#808080;position:relative;}
+        #div1{width:20px;height:20px;background-color:#0094ff;position:absolute;}
+        #div2{width:200px;height:200px;position:relative;overflow:hidden;}
+        #div3{position:absolute;}
+    </style>
+
+    <script>
+        function myAddEvent(obj, sEvent, fn) {
+            if (obj.attachEvent) {
+                obj.attachEvent('on' + sEvent, fn);
+            }
+            else {
+                obj.addEventListener(sEvent, fn, false);
+            }
+        }
+
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+            var oParent = document.getElementById("parent");
+            var div2 = document.getElementById("div2");
+            var div3 = document.getElementById("div3");
+
+            function onMouseWheel(ev) {
+                var oEvent = ev || event;
+                var BDown = true;
+
+                BDown = oEvent.wheelDelta ? oEvent.wheelDelta < 0 : oEvent.detail > 0;
+                
+                if (BDown) {
+                    //oDiv.style.height = oDiv.offsetHeight + 10 + "px";
+                    SetLeft(oDiv.offsetLeft + 10);
+                }
+                else {
+                    //oDiv.style.height = oDiv.offsetHeight - 10 + "px";
+                    SetLeft(oDiv.offsetLeft - 10);
+                }
+                oEvent.preventDefault();
+            }
+
+            myAddEvent(oParent, "DOMMouseScroll", onMouseWheel);
+            myAddEvent(oParent, "mousewheel", onMouseWheel);
+
+            oDiv.onmousedown = function (ev) {
+                var oEvent = ev || event;
+                var disX = oEvent.clientX - oDiv.offsetLeft;
+
+                document.onmousemove = function (ev) {
+                    var oEvent = ev || event;
+                    var l = oEvent.clientX - disX;
+
+                    SetLeft(l);
+                };
+
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                };
+            };
+            function SetLeft(l) {
+                if (l < 0) {
+                    l = 0;
+                }
+                else if (l > oParent.offsetWidth - oDiv.offsetWidth) {
+                    l = oParent.offsetWidth - oDiv.offsetWidth;
+                }
+
+                oDiv.style.left = l + 'px';
+
+                var scale = l / (oParent.offsetWidth - oDiv.offsetWidth);
+
+                div3.style.top = -(div3.offsetHeight - div2.offsetHeight) * scale + "px";
+            }
+        };
+    </script>
+    <script>
+    </script>
+</head>
+<body>
+    <div id="parent">
+        <div id="div1"></div>
+    </div>
+
+    <div id="div2">
+        <div id="div3">
+            2015年12月大学英语六级翻译预测：古典文化
+            Directions:
+            For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.
+            党的十八大以来，习近平总书记发表了一系列重要讲话、文章、访谈，形成了富有个性的话语风格。善于用典是其特点之一。习近平总书记经常运用古代诗词中的经典名句，说明当今人们生活实践中的重大问题，不断激活中华民族优秀传统文化基因，赋予其鲜明的时代内涵。诗词作为中国文化的一块瑰宝，不仅仅被一代代中国人传颂，也被翻译成了英语，被外国人引用。“多少事，从来急;天地转，光阴迫。一万年太久，只争朝夕!”现在就是我们只争朝夕传承中国古典文化的时候了。
+            参考译文：
+            Since the convening of the Eighteenth National Congress of the CPC, General Secretary Xi Jinping has made a series of important speeches, essays and interviews with an individualistic discourse style. Citing allusion is one of its characteristics. General Secretary Xi Jinping often uses the classic sentences in ancient poetry to show the major issues in the living practice of today’s people and to continually activate the Chinese nation’s outstanding traditional culture genes, which gives it a distinct connotation of the time. As a treasure of Chinese culture, ancient poetry is not just widely celebrated by generations of Chinese people, also has been translated into English and referenced by foreigners. “So many deeds cry out to be done, and always urgently; the world rolls on, time presses. Ten thousand years are too long; seize the day, seize the hour!” This is the hour for us to keep and inherit our traditional culture.
+        </div>
+    </div>
+
+</body>
+</html>

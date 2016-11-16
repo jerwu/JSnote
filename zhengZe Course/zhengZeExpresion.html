@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>正则表达式</title>
+    <script>
+        //search
+        //var str = "abcdef";
+        //alert(str.search("e"));//返回要查找的字符串第一次出现的位置并返回其索引值，没有则返回-1；
+
+        //substring
+        //var str = "abcdef";
+        //alert(str.substring(1, 4));
+        //alert(str.substring(1));
+
+        //match
+        //var str = "12 32 ssd12 asd1ad fs11a2 s444";
+        //alert(str.match("bed"));//匹配字符串,没有则返回null，
+        //alert(str.match(/\d+/g));
+
+        //charAt(着某个位置上的字符)
+        //var str = "abcdef";
+        //alert(str.charAt(4));
+
+        //split（把字符串切片）
+        //var str = "name-age-jer-20";
+        //alert(str.split('-'));
+
+        //replace
+        //var str = "abcdeCf";
+        ////alert(str.replace("c", "C"));
+        //var re = /c+/ig;
+        //alert(str.replace(re,"d"));
+    </script>
+
+    <script>
+        //传统字符串操作对比正则表达式
+        //var str = "12,87 76 -ddf e dd 89 ff76 9";
+        //var arr = [];
+        //var temp = '';
+
+        //for (var i = 0; i < str.length; i++) {
+        //    if (str.charAt(i) >= "0" && str.charAt(i) <= "9") {
+        //        temp += str.charAt(i);
+        //    }
+        //    else {
+        //        if (temp) {
+        //            arr.push(temp);
+        //            temp = "";
+        //        }
+        //    }
+        //}
+        //if (temp) {
+        //    arr.push(temp);
+        //    temp = "";
+        //}
+        //alert(arr);
+
+        //正则
+        //var str = "12,87 76 -ddf e dd 89 ff76 9";
+        //var re = /\d+/g;
+        //alert(str.match(re));
+    </script>
+
+    <script>
+        //var str = "abEcdef";
+        //var re = new RegExp("e","ig");
+        ////alert(re.test(str));
+        //alert(str.search(re));
+
+        //检查浏览器版本
+        //if (window.navigator.userAgent.search(/firefox/i)!=-1) {
+        //    alert("ff");
+        //}
+        //if (window.navigator.userAgent.search(/chrome/i) != -1) {
+        //    alert("chrome");
+        //}
+        //if (window.navigator.userAgent.search(/msie 11/i) != -1) {
+        //    alert("ie 10");
+        //}
+
+
+    </script>
+
+    <script>
+        //敏感词过滤
+        //window.onload = function () {
+        //    var txt1 = document.getElementById("txt1");
+        //    var btn = document.getElementById("btn");
+        //    var txt2 = document.getElementById("txt2");
+
+        //    btn.onclick = function () {
+        //        //txt2.value = txt1.value.replace(/yellow/gi, "**");
+        //        txt2.value = txt1.value.replace(/red|yellow|blue/gi, "**");
+        //    }
+        //}
+    </script>
+
+    <script>
+        ////字符类
+        //var str = "1a2 1h2 3g5"
+        //var re = /1[abc]2/gi;
+        ////var re = /1a2|1b2|1c2/gi;
+        //alert(re.test(str));
+    </script>
+
+    <script>
+        //偷小说
+        //window.onload = function () {
+        //    var txt1 = document.getElementById("txt1");
+        //    var btn = document.getElementById("btn");
+        //    var txt2 = document.getElementById("txt2");
+            
+        //    btn.onclick = function () {
+        //        var re = /<.+>/g;
+        //        var re = /<[^<>]+>/g;
+        //        txt2.value = txt1.value.replace(re, "");
+        //    }
+        //}
+
+    </script>
+</head>
+<body>
+    <textarea id="txt1" rows="10" cols="40"></textarea>
+    <input type="button" id="btn" value="过滤" />
+    <textarea id="txt2" rows="10" cols="40"></textarea>
+</body>
+</html>

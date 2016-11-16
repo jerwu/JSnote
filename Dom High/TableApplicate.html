@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>表格应用</title>
+    
+    <script>
+        //window.onload = function () {
+        //    //1、
+        //    //var aaa = document.getElementById("tab1").getElementsByTagName("tbody")[0].getElementsByTagName("tr")[2].getElementsByTagName("td")[1];
+        //    //alert(aaa.innerHTML);
+
+        //    //2、
+        //    //var oTab = document.getElementById("tab1")
+        //    //alert(oTab.tBodies[0].rows[2].cells[1].innerHTML);
+
+        //    //3、不加tBodies
+        //    //var oTab = document.getElementById("tab1");
+        //    //alert(oTab.rows[0].cells[1].innerHTML);
+        //}
+    </script>
+
+    <!--高亮-->
+    <script>
+        //window.onload = function () {
+        //    var oBtn = document.getElementById("btn1");
+        //    var oTab = document.getElementById("tab1");
+        //    var oldBgColor = "";
+
+        //    for (var i = 0; i < oTab.tBodies[0].rows.length; i++) {
+        //        oTab.tBodies[0].rows[i].style.background = i % 2 ? '#CCC' : '';
+
+        //        //方法一
+        //        //oTab.tBodies[0].rows[i].index=i
+        //        //oTab.tBodies[0].rows[i].onmouseover = function () {
+        //        //    this.style.background = "yellow";
+        //        //}
+
+        //        //oTab.tBodies[0].rows[i].onmouseout = function () {
+        //        //    this.style.background = this.index % 2 ? "#ccc" : "";
+        //        //}
+
+        //        //方法二
+        //        oTab.tBodies[0].rows[i].onmouseover = function () {
+        //            oldBgColor = this.style.background;
+        //            this.style.background ="yellow";
+        //        }
+        //        oTab.tBodies[0].rows[i].onmouseout= function () {
+        //            this.style.background = oldBgColor;
+        //        }
+        //    }
+        //}
+    </script>
+
+    <!--添加与删除行-->
+    <script>
+        //window.onload = function () {
+        //    var oBtn = document.getElementById("btn1");
+        //    var oTab = document.getElementById("tab1");
+        //    var oTxt = document.getElementById("txt1");
+        //    var iNowId=oTab.tBodies[0].rows.length+1;
+
+        //    oBtn.onclick = function () {
+        //        var oTr = document.createElement("tr");
+        //        var oTd = null;
+
+        //        oTd = document.createElement("td");oTab.tBodies[0].rows.length
+        //        oTd.innerHTML = iNowId++;
+        //        oTr.appendChild(oTd);
+
+        //        oTd = document.createElement("td");
+        //        oTd.innerHTML = oTxt.value;
+        //        oTr.appendChild(oTd);
+
+        //        oTd = document.createElement("td");
+        //        oTd.innerHTML = '<a href="#;">delete</a>';
+        //        oTr.appendChild(oTd);
+
+        //        oTd.getElementsByTagName("a")[0].onclick = function () {
+        //            oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+        //        }
+
+
+        //        oTab.tBodies[0].appendChild(oTr);
+        //    }
+        //}
+    </script>
+
+    <!--搜索四版本-->
+    <!--版本1：基础版本——字符串比较-->
+    <script>
+        //window.onload = function () {
+        //    var oBtn = document.getElementById("btn1");
+        //    var oTxt = document.getElementById("txt1");
+        //    var oTab = document.getElementById("tab1");
+
+        //    oBtn.onclick = function () {
+        //        for (var i = 0; i < oTab.tBodies[0].rows.length; i++) {
+        //            if (oTab.tBodies[0].rows[i].cells[1].innerHTML==oTxt.value) {
+        //                oTab.tBodies[0].rows[i].style.background = "yellow";
+        //            }
+        //            else {
+        //                oTab.tBodies[0].rows[i].style.background = "";
+        //            }
+        //        }
+        //    }
+        //}
+    </script>
+
+    <!--版本2：忽略大小写——大小写转换-->
+    <script>
+        //window.onload = function () {
+        //    var oBtn = document.getElementById("btn1");
+        //    var oTxt = document.getElementById("txt1");
+        //    var oTab = document.getElementById("tab1");
+
+        //    oBtn.onclick = function () {
+        //        for (var i = 0; i < oTab.tBodies[0].rows.length; i++) {
+        //            var sValueInTab = oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+        //            var sValueInTxt = oTxt.value.toLowerCase();
+
+        //            if (sValueInTab == sValueInTxt) {
+        //                oTab.tBodies[0].rows[i].style.background = "yellow";
+        //            }
+        //            else {
+        //                oTab.tBodies[0].rows[i].style.background = "";
+        //            }
+        //        }
+        //    }
+        //}
+    </script>
+
+    <!--版本3：模糊搜索——search的使用-->
+    <script>
+        //search原理
+        //var str = "abcdefg";
+        //alert(str.search("bc"));
+        //alert(str.search("be"));
+
+        //var str = "Blue leo";
+        //var arr = str.split(" ");
+
+        //var str2 = "Blue id s person";
+        //var bFound = false;
+
+        //for (var i = 0; i < arr.length; i++) {
+        //    if ( str2.search(arr[0])!=-1) {
+        //        bFound = true;
+        //        break;
+        //    }
+        //}
+
+        
+    </script>
+
+    <!--版本4：多关键词——split-->
+    <script>
+        //window.onload = function () {
+        //    var oBtn = document.getElementById("btn1");
+        //    var oTxt = document.getElementById("txt1");
+        //    var oTab = document.getElementById("tab1");
+
+        //    oBtn.onclick = function () {
+        //        for (var i = 0; i < oTab.tBodies[0].rows.length; i++) {
+        //            var sValueInTab = oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+        //            var sValueInTxt = oTxt.value.toLowerCase();
+
+        //            var arr = sValueInTxt.split(" ");
+        //            var bFound = false;
+        //            for (var j = 0; j < arr.length; j++) {
+        //                if (sValueInTab.search(arr[j]) != -1) {
+        //                    bFound = true;
+        //                    break;
+        //                }
+        //            }
+
+        //            if (bFound) {
+        //                oTab.tBodies[0].rows[i].style.background = "yellow";
+        //            }
+        //            else {
+        //                oTab.tBodies[0].rows[i].style.background = "";
+        //            }
+        //        }
+        //    }
+        //}
+    </script>
+
+    <!--移动Li-->
+    <style>
+        /*#ul1{background-color:red;}
+        #ul2{background-color:yellow;}*/
+    </style>
+    <script>
+        //window.onload = function () {
+        //    var oBtn = document.getElementById("btn1");
+        //    var oUl1 = document.getElementById("ul1");
+        //    var oUl2 = document.getElementById("ul2");
+        //    var aLi = oUl1.getElementsByTagName("li");
+
+        //    oBtn.onclick = function () {
+        //        //oUl2.appendChild(aLi[0]);//1.先移除父级		2.再添加到新的父级
+
+        //        oUl1.appendChild(aLi[0]);
+        //    }
+        //}
+    </script>
+
+    <!--元素排序：转换——排序——插入-->
+    <!--sort方法的使用不熟悉-->
+    <!--zhushi内是错误理解-->
+    <script>
+        //window.onload = function () {
+        //    var oBtn = document.getElementById("btn1");
+        //    var oTab = document.getElementById("tab1");
+        //    var bAsc = true;//是否是升序排列的（是否是1，2，3.....n这种形式)
+
+        //    oBtn.onclick = function () {
+        //        var arr = [];
+
+        //        //转换（把表格里面的数转换成数组）aLi是object connection
+        //        for (var i = 0; i < oTab.tBodies[0].rows.length; i++) {
+        //            arr[i] = oTab.tBodies[0].rows[i];
+        //            //arr数组里面应该放tr组成的数组，而不是tr下面td的innerHTML的int值，应该转换后插入表格的时候数据的格式就不对了
+        //            //arr[i] = parseInt(oTab.tBodies[0].rows[i].cells[0].innerHTML);
+        //        }
+                    
+        //        //排序（运用sort方法）
+        //        arr.sort(function (tr1, tr2) {
+        //            if (bAsc) {
+        //                return parseInt(tr1.cells[0].innerHTML) - parseInt(tr2.cells[0].innerHTML);
+        //            }
+        //            else {
+        //                return parseInt(tr2.cells[0].innerHTML) - parseInt(tr1.cells[0].innerHTML);
+        //            }
+                    
+        //        })
+        //        //function sortNumber(a, b) { return a - b; };
+        //        //arr = arr.sort(sortNumber);
+
+        //        //插入
+        //        for (var i = 0; i < arr.length; i++) {
+        //            oTab.tBodies[0].appendChild(arr[i]);
+        //            //oTab.tBodies[0].rows[i].cells[0].innerHTML.appendChild(arr[i]);
+        //        }
+
+        //        bAsc = !bAsc;
+        //        //下面的判断课简写成上面的形式，效果一样
+        //        //if (bAsc) {
+        //        //    bAsc = false;
+        //        //}
+        //        //else {
+        //        //    bAsc = true;
+        //        //}
+        //    }
+        //}
+    </script>
+
+    <!--排序Li-->
+    <script>
+        // window.onload = function () {
+        //    var oBtn = document.getElementById("btn1");
+        //    var oUl = document.getElementById("ul1");
+
+        //    oBtn.onclick = function () {
+        //        var aLi = oUl.getElementsByTagName("li");
+        //        var arr = [];
+
+        //        for (var i = 0; i < aLi.length; i++) {
+        //            arr[i] = aLi[i];
+        //        }
+
+        //        arr.sort(function (li1,li2) {
+        //            return parseInt(li1.innerText) - parseInt(li2.innerText);
+        //        })
+
+        //        for (var i = 0; i < arr.length; i++) {
+        //            oUl.appendChild(arr[i]);
+        //        }
+        //    }
+        // }
+    </script>
+</head>
+<body>
+    <!--搜索，高亮，增加删除行-->
+    <!--元素排序：转换——排序——插入-->
+    <!--<input type="button" id="btn1" value="排序" />
+    <input type="text" id="txt1" />
+    <table id="tab1" border="1" width="400">
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>name</td>
+                <td>other</td>
+            </tr>
+            
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td>2</td>
+                <td>leo</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Blue</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>ccc</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>莫莫</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>aaa</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>bbb</td>
+                <td></td>
+            </tr>
+            
+        </tbody>
+    </table>-->
+
+    <!--移动Li-->
+    <!--<input type="button" id="btn1" value="move" />
+    <ul id="ul1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <ul id="ul2"></ul>-->
+
+    <!--排序Li-->
+    <!-- <input type="button" id="btn1" value="move" />
+    <ul id="ul1">
+        <li>10</li>
+        <li>60</li>
+        <li>22</li>
+        <li>45</li>
+        <li>5</li>
+    </ul> -->
+</body>
+</html>

@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+        //function SetCookie(name,value,iDay) {
+        //    var oDate = new Date();
+
+        //    oDate.setDate(oDate.getDate() + iDay);
+        //    document.cookie = name + "=" + value + ";expires=" + oDate;
+        //}
+
+        //function GetCookie(name) {
+        //    var arr = document.cookie.split("; ");
+
+        //    for (var i = 0; i < arr.length; i++) {
+        //        var arr2 = arr[i].split("=");
+
+        //        if (arr2[0]==name) {
+        //            return arr2[1];
+        //        }
+        //    }
+        //    return "";
+        //}
+
+        //function RemoveCookie(name) {
+        //    SetCookie(name, "1", -1);
+        //}
+
+        //SetCookie("username", "white", 30);
+        //SetCookie("password", 123456, 300);
+
+        //alert(GetCookie("username"));
+        //RemoveCookie("username");
+        //alert(GetCookie("username"));
+
+        //alert(GetCookie("username"));
+        //alert(document.cookie);
+    </script>
+    <script>
+        //window.onload = function () {
+        //    var oForm = document.getElementById("form1");
+        //    var ouser = document.getElementsByName("user")[0];
+        //    var obtnclear = document.getElementsByTagName("a")[0];
+
+        //    oForm.submit = function () {
+        //        SetCookie("user",ouser.value, 30);
+        //    }
+        //    ouser.value = GetCookie("user");
+
+        //    obtnclear.onclick = function () {
+        //        RemoveCookie("ouser")
+        //        ouser.value = "";
+        //    }
+        //}
+    </script>
+
+    <script>
+        //for...in
+        var obj = { a: 10, b: 20, c: 30 };
+
+        for(var i in obj)
+        {
+            alert(i + ":" + obj[i]);
+        }
+    </script>
+
+    <script>
+        //note
+        //function startMove(obj, json, fn) {
+        //    clearInterval(obj.timer);
+
+        //    obj.timer = setInterval(function () {
+        //        var iCur = 0;
+        //        for (var attr in json) {
+        //            if (attr == "opacity") {
+        //                iCur = parseInt(parseFloat(getStyle(obj, attr)) * 100);
+        //            }
+        //            else {
+        //                iCur = parseInt(getStyle(obj, attr));
+        //            }
+
+        //            var iSpeed = (json[attr] - iCur) / 8;
+        //            iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+
+        //            if (attr == "opacity") {
+        //                obj.style.filter = "alpha(opacity=" + (iCur + iSpeed) + ")";
+        //                obj.style.opacity = (iCur + iSpeed) / 100;
+        //            }
+        //            else {
+        //                obj.style[attr] = iCur + iSpeed + "px";
+        //            }
+        //        }
+
+        //        if (iCur == json[attr]) {
+        //            clearInterval(obj.timer);
+
+        //            if (fn) {
+        //                fn();
+        //            }
+        //        }
+        //    }, 30);
+        //}
+    </script>
+</head>
+<body>
+    <!--<form id="form1" action="http://www.miaov.com/">
+        用户名：<input type="text" name="user" value="请输入你的用户名"/>
+        密码：<input type="password" name="pass" />
+        <input type="submit" value="登陆" />
+        <a href="#">清除记录</a>
+    </form>-->
+</body>
+</html>

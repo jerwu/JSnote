@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style>
+        #div1{width:100px;height:100px;background-color:red;position:absolute;}
+        #div2{width:100px;height:100px;background-color:blue;position:absolute;}
+    </style>
+
+    <script>
+        function Drag(id) {
+            var _this = this;
+            
+            this.disX = 0;
+            this.disY = 0;
+            this.odiv = document.getElementById(id);
+            this.odiv.onmousedown = function () {
+                _this.fnDown();
+                return false;
+            };
+        }
+
+        Drag.prototype.fnDown=function(ev) {
+            var _this = this;
+
+            var oEvent = ev || event;
+            this.disX = oEvent.clientX - this.odiv.offsetLeft;
+            this.disY = oEvent.clientY - this.odiv.offsetTop;
+
+            document.onmousemove = function () {
+                _this.fnMove();
+            }
+                
+            document.onmouseup = function () {
+                _this.fnUp();
+            }
+                
+        }
+
+
+        Drag.prototype.fnMove=function(ev) {
+            var oEvent = ev || event;
+            this.odiv.style.left = oEvent.clientX - this.disX + "px";
+            this.odiv.style.top = oEvent.clientY - this.disY + "px";
+        }
+
+        Drag.prototype.fnUp = function () {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        }
+        
+    </script>
+    <script>
+    function LimitDrag(id) {
+        Drag.call(this, id);
+    }
+
+    for (var i in Drag.prototype ) {
+        LimitDrag.prototype[i] = Drag.prototype[i];
+    }
+
+
+    LimitDrag.prototype.fnMove = function (ev) {
+        var oEvent = ev || event;
+        var l = oEvent.clientX - this.disX;
+        var t = oEvent.clientY - this.disY;
+        if (l<0) {
+            l = 0;
+        }
+        else if (l>document.documentElement.clientWidth-this.odiv.offsetWidth) {
+            l = document.documentElement.clientWidth - this.odiv.offsetWidth;
+        }
+        if (t<0) {
+            t = 0;
+        }
+        else if(t>document.documentElement.clientHeight-this.odiv.offsetHeight) {
+            t = document.documentElement.clientHeight - this.odiv.offsetHeight
+        }
+        this.odiv.style.left = l + "px";
+        this.odiv.style.top = t + "px";
+    }
+
+    window.onload = function () {
+        var p1 = new Drag("div1");
+        var w1 = new LimitDrag("div2");
+    }
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+</html>

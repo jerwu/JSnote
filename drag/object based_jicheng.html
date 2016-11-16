@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>组合继承</title>
+    <script>
+        function createPerson(name, sex) {
+            this.name = name;
+            this.sex = sex;
+        }
+
+        createPerson.prototype.showName = function () {
+            alert(this.name);
+        }
+
+        createPerson.prototype.showSex = function () {
+            alert(this.sex);
+        }
+        //---------------------------------------------
+        function Worker(name, sex, job) {
+            createPerson.call(this, name, sex);//调用了父级的构造函数
+            this.job = job;
+        }
+        //for (var i in createPerson.prototype) {
+        //    Worker.prototype[i] = createPerson.prototype[i];
+        //}
+
+        Worker.prototype = createPerson.prototype;
+
+        Worker.prototype.showJob = function () {
+            alert(this.job);
+        }
+
+        window.onload = function () {
+            var w1 = new Worker("blue", "man", "student");
+            w1.showJob();
+            w1.showName();
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

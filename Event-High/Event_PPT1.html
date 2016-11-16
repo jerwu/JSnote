@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>事件绑定</title>
+    <script>
+        //事件绑定
+        //function aaa() { alert("aaa"); }
+        //function bbb() { alert("bbb"); }
+        
+
+        //window.onload = function () {
+        //    var btn1 = document.getElementById("btn1");
+
+        //    btn1.addEventListener("click", aaa, false);
+        //    btn1.addEventListener("click", bbb, false);
+
+        //    //btn1.addEventListener("click", function () { alert("aaa"); }, false);
+        //    //btn1.removeEventListener("click", function () { alert("aaa"); }, false);
+        //    //注意：上面的解除绑定不能解除匿名函数的绑定
+        //}
+
+        //事件绑定封装成函数(因为attachevent已经取消,封装没有多少意义)
+
+        //绑定事件与this
+        window.onload = function () {
+            var btn1 = document.getElementById("btn1");
+
+            //btn1.onclick = function () { alert(this) };//this指向HTML上的input
+            btn1.addEventListener("click", function () { alert(this) }, false)//this指向HTML上的input
+        }
+        
+    </script>
+</head>
+<body>
+    <input id="btn1" type="button" value="按钮"/>
+</body>
+</html>

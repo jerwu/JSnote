@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <!--<style>
+        div{width:100px;height:100px;background-color:green;display:none}
+        .active{background-color:red;}
+        #div1{display:block;}
+    </style>-->
+
+    <script>
+        //选项卡
+    //window.onload = function () {
+    //    var oDiv = document.getElementById('div1');
+    //    var aBtn = oDiv.getElementsByTagName('input');
+    //    var aDiv = oDiv.getElementsByTagName('div');
+    //    var i = 0;
+
+    //    for (i = 0; i < aBtn.length; i++) {
+    //        aBtn[i].index = i;
+    //        aBtn[i].onclick = function () {
+    //            for (i = 0; i < aBtn.length; i++) {
+    //                aBtn[i].className = '';
+    //                aDiv[i].style.display = 'none';
+    //            }
+    //            this.className = 'active';
+    //            aDiv[this.index].style.display = 'block';
+    //        };
+    //    }
+    //};
+
+    </script>
+
+    <script>
+        //面向对象的选项卡
+        //window.onload = function () {
+        //    var tab = new TabSwitch();
+        //    tab("div1");
+        //}
+
+        //function TabSwitch(id) {
+        //    var odiv = document.getElementById(id);
+        //    this.abtn = document.getElementsByTagName("input");
+        //    this.adiv = document.getElementsByTagName("div");
+        //    var i = 0;
+
+        //    var _this = this;
+        //    for (var i = 0; i < this.abtn.length; i++) {
+        //        this.abtn[i].index = i;
+        //        this.abtn[i].onclick = function () {
+        //            _this.tab(this);
+        //        }
+        //    }
+        //}
+
+        //TabSwitch.prototype.tab=function(obtn) {
+        //    for (var i = 0; i < this.abtn.length; i++) {
+        //        this.abtn[i].className = "";
+        //        this.adiv[i].style.display = "none";
+        //    }
+        //    obtn.className = "active"
+        //    this.adiv[obtn.index].style.display = "block";
+        //}
+        
+    </script>
+
+    <script>
+        //function Aaa() {
+        //    var _this = this;
+        //    this.a = 12;
+        //    setInterval(function () { _this.show }, 1000);
+        //}
+
+        //Aaa.prototype.show = function () {
+        //    alert(this.a);
+        //}
+        //var obj = new Aaa();
+        //obj.show();
+
+        function Bbb() {
+            var _this = this;
+            this.b = 5;
+            document.getElementById("btn1").onclick = function () {
+                _this.show();
+            }
+        }
+
+        Bbb.prototype.show = function () {
+            alert(this.b);
+        }
+        window.onload = function () {
+            new Bbb();
+        }
+    </script>
+</head>
+<body>
+    <input id="btn1"type="button" value="按钮" />
+    <!--<div id="div1">
+        <input type="button" class="active" value="1" />
+        <input type="button" value="1" />
+        <input type="button" value="1" />
+        <div style="display:block;">11111</div>
+        <div>22222</div>
+        <div>33333</div>
+    </div>-->
+</body>
+</html>

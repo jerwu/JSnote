@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>运动扩展课程</title>
+    <!--加、减速运动与弹性运动-->
+    <style>
+        /*#div1{width:100px;height:100px;background-color:blue;position:absolute;}
+        #span1{width:1px;height:300px;position:absolute;left:500px;top:0;background-color:black;}*/
+    </style>
+    <script>
+        // var iSpeed = 0;
+        // //var iSpeed = 30;
+
+        // function startMove() {
+        //    var oDiv = document.getElementById("div1");
+        //    var oBtn = document.getElementById("btn1");
+
+        //    setInterval(function () {
+        //        //1、加速运动
+        //        //iSpeed++;
+
+        //        //2、减速运动
+        //        //iSpeed--;
+
+        //        //3、弹性运动
+        //        //if (oDiv.offsetLeft<500) {
+        //        //    iSpeed += (500 - oDiv.offsetLeft) / 5;//5可以用任意整数代替
+        //        //}
+        //        //else {
+        //        //    iSpeed -= (oDiv.offsetLeft - 500) / 5;
+        //        //}
+        //                //实际上iSpeed += (500 - oDiv.offsetLeft) / 5 与 iSpeed -= (oDiv.offsetLeft - 500) / 5化简后是相等的
+        //                //所以可以直接省略判断。因为大于目标值和小于目标值计算速度的公式是一样的
+        //        //iSpeed += (500 - oDiv.offsetLeft) / 5;//效果也上面一样
+
+        //        //4、弹性运动+摩擦力
+        //        iSpeed += (500 - oDiv.offsetLeft) / 5;
+        //        iSpeed *= 0.7;//摩擦力
+
+        //            oDiv.style.left = oDiv.offsetLeft + iSpeed + "px";
+        //        }, 30);
+        // }
+    </script>
+
+    <!--仿妙味官网导航条效果-->
+    <style>
+       /* * {padding: 0;margin: 0;}
+        ul {width: 400px;height: 30px;position: relative;margin: 100px auto 0;list-style: none;overflow: hidden;}
+        li {float: left;width: 98px;height: 28px;line-height: 28px;border: 1px solid #ccc;text-align: center;z-index: 2;position: relative;cursor: pointer;}
+        .bg {width: 100px;height: 5px;overflow: hidden;background: red;border: none;position: absolute;top: 25px;left: 0;z-index: 1;}*/
+    </style>
+    <script>
+        // window.onload = function () {
+        //    var oUl = document.getElementById("ul1");
+        //    var aLi = oUl.getElementsByTagName("li");
+        //    var oBg = aLi[aLi.length - 1];
+        //    for (var i = 0; i < aLi.length - 1; i++) {
+        //        aLi[i].onmouseover = function () {
+                    
+        //            startMove(oBg, this.offsetLeft);
+                    
+        //        }
+        //    }
+        // }
+
+        // var iSpeed = 0;
+        // var Left = 0;
+
+        // function startMove(obj, iTarget) {
+        //    clearInterval(obj.timer)
+
+        //    obj.timer = setInterval(function () {
+        //        iSpeed += (iTarget - obj.offsetLeft) / 5;
+        //        iSpeed *= 0.7;
+
+        //        Left += iSpeed;//弹性运动特有的解决方法
+        //        if (Math.abs(iTarget - obj.offsetLeft) < 1 && Math.abs(iSpeed) < 1) {
+        //            clearInterval(obj.timer);
+        //            obj.style.left = obj.offsetLeft + "px";
+        //        }
+        //        else {
+        //            obj.style.left = Left + "px";
+        //            //document.title = obj.offsetLeft + "|" + iTarget + ";iSpeed=" + iSpeed;
+        //        }
+        //    }, 30);
+        // }
+    </script>
+
+    <!--弹性运动的问题：运动过界-->
+    <style>
+        /*#div1{width:100px;height:20px;background-color:red;position:absolute;}*/
+    </style>
+    <script>
+        // window.onload = function () {
+        //    var oDiv = document.getElementById("div1");
+        //    oDiv.onmouseover = function () {
+        //        startMove(this, 300);
+        //    }
+        //    oDiv.onmouseout = function () {
+        //        startMove(this, 20);
+        //    }
+        // }
+
+        // var iSpeed = 0;
+        // var Height = 20;
+
+        // function startMove(obj, iTarget) {
+        //    clearInterval(obj.timer);
+
+        //    obj.timer = setInterval(function () {
+        //        iSpeed += (iTarget - Height) / 5;//总是忘记写加号，会导致运动效果but，类似缓冲运动
+        //        iSpeed *= 0.7;
+
+        //        Height += iSpeed;
+        //        if (Math.abs(iSpeed) < 1 && Math.abs(iTarget - Height) < 1) {
+        //            clearInterval(obj.timer);
+        //            obj.style.height = iTarget + "px";
+        //        }
+        //        else {
+                    
+        //            if (Height<0) {
+        //                Height = 0;
+        //            }
+
+        //            obj.style.height = Height + "px";
+        //        }
+        //    }, 30);
+        // }
+    </script>
+
+    <!--碰撞运动-->
+    <style>
+        /*#div1{width:100px;height:100px;background-color:blue;position:absolute;}*/
+    </style>
+    <script>
+        // var timer = null;
+        // var iSpeedX=6;
+        // var iSpeedY=8;
+
+        // function startMove() {
+        //    var oDiv = document.getElementById("div1");
+
+        //    timer = setInterval(function () {
+        //        var l = oDiv.offsetLeft + iSpeedX;
+        //        var t = oDiv.offsetTop + iSpeedY;
+
+        //        if (t >= document.documentElement.clientHeight - oDiv.offsetHeight) {
+        //            t = document.documentElement.clientHeight - oDiv.offsetHeight;
+        //            iSpeedY *= -1;
+        //        }
+        //        else if (t<=0) {
+        //            iSpeedY *= -1;
+        //        }
+        //        if (l >= document.documentElement.clientWidth - oDiv.offsetWidth) {
+        //            l = document.documentElement.clientWidth - oDiv.offsetWidth;
+        //            iSpeedX *= -1;
+        //        }
+        //        else if (l<=0) {
+        //            iSpeedX *= -1;
+        //        }
+
+        //        oDiv.style.left = l + "px";
+        //        oDiv.style.top = t + "px";
+
+        //    }, 30)
+        // }
+    </script>
+
+    <!--碰撞运动+重力-->
+    <style>
+         /*#div1{width:100px;height:100px;background-color:blue;position:absolute;}*/
+    </style>
+    <script>
+        // var timer = null;
+        // var iSpeedX=12;
+        // var iSpeedY = 8;
+
+        // function startMove() {
+        //    timer = setInterval(function () {
+        //        var oDiv = document.getElementById("div1");
+        //        iSpeedY += 3;
+
+        //        var l = oDiv.offsetLeft + iSpeedX;
+        //        var t = oDiv.offsetTop + iSpeedY;
+
+        //        if (t >= document.documentElement.clientHeight - oDiv.offsetHeight) {
+        //            t = document.documentElement.clientHeight - oDiv.offsetHeight;
+        //            iSpeedY *= -0.8;
+        //            iSpeedX *= 0.8;
+        //        }
+        //        else if (t<=0) {
+        //            iSpeedY *= -1;
+        //            iSpeedX *= 0.8;
+        //            t = 0;
+        //        }
+        //        if (l >= document.documentElement.clientWidth - oDiv.offsetWidth) {
+        //            iSpeedX *= -0.8;
+        //            l = document.documentElement.clientWidth - oDiv.offsetWidth;
+                   
+        //        }
+        //        else if (l<=0) {
+        //            iSpeedX *= -0.8;
+        //            l = 0;
+        //        }
+
+        //        if (Math.abs(iSpeedX)<1) {
+        //            iSpeedX = 0;
+        //        }
+        //        if (Math.abs(iSpeedY)<1) {
+        //            iSpeedY = 0;
+        //        }
+        //        oDiv.style.left = l + "px";
+        //        oDiv.style.top = t + "px";
+
+        //        document.title = iSpeedX;
+
+        //    }, 30)
+        // }
+    </script>
+
+    <!--碰撞+重力+拖拽-->
+    <style>
+        #div1{width:100px;height:100px;background-color:blue;position:absolute;}
+        div{width:2px;height:2px;background-color:black;position:absolute;}
+    </style>
+    <script>
+        window.onload = function () {
+           var oDiv = document.getElementById("div1");
+           var lastX = 0;
+           var lastY = 0;
+
+           oDiv.onmousedown = function (ev) {
+               var oEvent = ev || event;
+               var disX = oEvent.clientX - oDiv.offsetLeft;
+               var disY = oEvent.clientY - oDiv.offsetTop;
+
+               document.onmousemove = function (ev) {
+                   var oEvent = ev || event;
+                   var l = oEvent.clientX - disX;
+                   var t = oEvent.clientY - disY;
+
+                   oDiv.style.left = l + "px";
+                   oDiv.style.top = t + "px";
+
+                   //测试
+                   //var oBox = document.createElement("div");
+
+                   //oBox.style.left = l + "px";
+                   //oBox.style.top = t + "px";
+                   //document.body.appendChild(oBox);
+
+                   iSpeedX = l - lastX;//x轴瞬时速度
+                   iSpeedY = t - lastY;//y轴瞬时速度
+
+                   lastX = l;
+                   lastY = t;
+
+                   document.title = "x:" + lastX + "y:" + lastY;
+               }
+
+               document.onmouseup = function () {
+                   document.onmousemove = null;
+                   document.onmouseup = null;
+
+                   startMove(oDiv);
+               }
+           }
+        }
+
+        var iSpeedX=0;
+        var iSpeedY = 0;
+
+        function startMove(obj) {
+           obj.timer = setInterval(function () {
+               var oDiv = document.getElementById("div1");
+               iSpeedY += 3;//做匀加速运动
+
+               //让物体在可是区内做碰撞运动
+               var l = oDiv.offsetLeft + iSpeedX;
+               var t = oDiv.offsetTop + iSpeedY;
+
+               if (t >= document.documentElement.clientHeight - oDiv.offsetHeight) {
+                   t = document.documentElement.clientHeight - oDiv.offsetHeight;
+                   iSpeedY *= -0.8;//负号是让物体碰撞后速度改变方向，乘一个小数是让速度（模仿重力）会受摩擦力不断减小。
+                   iSpeedX *= 0.8;//让X轴方向的速度也减小，物体才会真的停下来
+               }
+               else if (t<=0) {
+                   iSpeedY *= -1;
+                   iSpeedX *= 0.8;
+                   t = 0;
+               }
+               if (l >= document.documentElement.clientWidth - oDiv.offsetWidth) {
+                   iSpeedX *= -0.8;
+                   l = document.documentElement.clientWidth - oDiv.offsetWidth;
+
+               }
+               else if (l<=0) {
+                   iSpeedX *= -0.8;
+                   l = 0;
+               }
+
+               //让物体该停止的时候速度等于0
+               if (Math.abs(iSpeedX)<1) {
+                   iSpeedX = 0;
+               }
+               if (Math.abs(iSpeedY)<1) {
+                   iSpeedY = 0;
+               }
+
+               //运动停止检测
+               if (iSpeedY == 0 && iSpeedY ==0 && t == document.documentElement.clientHeight - oDiv.offsetHeight) {
+                   clearInterval(obj.timer);
+                   alert("stop");
+               }
+               else
+               {
+                   oDiv.style.left = l + "px";
+                   oDiv.style.top = t + "px";
+               }
+               //document.title = iSpeedX;
+
+           }, 30)
+        }
+    </script>
+</head>
+<body>
+    <!--加、减速运动与弹性运动-->
+    <!-- <input id="btn1" type="button" value="开始运动" onclick="startMove()" />
+    <div id="div1"></div>
+    <span id="span1"></span> -->
+
+    <!--仿妙味官网导航条效果-->
+    <!-- <ul id="ul1">
+        <li>首页</li>
+        <li>关于我们</li>
+        <li>产品</li>
+        <li>联系方式</li>
+        <li class="bg"></li>
+    </ul>
+    <div id="div1"></div> -->
+   
+    <!--弹性运动的问题：运动过界-->
+    <!-- <div id="div1"></div> -->
+
+    <!--碰撞运动-->
+    <!-- <input id="btn1" value="Begin Move" type="button" onclick="startMove()"/>
+    <div id="div1"></div> -->
+
+    <!--碰撞运动+重力-->
+    <!-- <input id="btn1" value="Begin Move" type="button" onclick="startMove()" />
+    <div id="div1"></div> -->
+
+    <!--碰撞+重力+拖拽-->
+    <input id="btn1" value="Begin Move" type="button" onclick="startMove()" />
+    <div id="div1"></div>
+</body>
+</html>

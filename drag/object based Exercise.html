@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>面向对象转换练习（选项卡与拖拽）</title>
+    <style>
+        /*选项卡的面向对象版转换--CSS*/
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            display: none;
+        }
+
+        .active {
+            background-color: red;
+        }
+
+        #div1 {
+            display: block;
+        }
+    </style>
+    <script>
+        ////选项卡的面向对象版转换
+        //window.onload = function () {
+        //    var oDiv = document.getElementById('div1');
+        //    var aBtn = oDiv.getElementsByTagName('input');
+        //    var aDiv = oDiv.getElementsByTagName('div');
+        //    var i = 0;
+
+        //    for (i = 0; i < aBtn.length; i++) {
+        //        aBtn[i].index = i;
+        //        aBtn[i].onclick = function () {
+        //            for (i = 0; i < aBtn.length; i++) {
+        //                aBtn[i].className = '';
+        //                aDiv[i].style.display = 'none';
+        //            }
+        //            this.className = 'active';
+        //            aDiv[this.index].style.display = 'block';
+        //        };
+        //    }
+        //};
+
+    </script>
+
+    <script>
+        ////选项卡的面向对象版转换
+        //window.onload = function () {
+        //    var odiv = document.getElementById("div1");
+        //    var abtn = odiv.getElementsByTagName("input");
+        //    var adiv = odiv.getElementsByTagName("div");
+        //    var i = 0;
+
+        //    for (var i = 0; i < abtn.length; i++) {
+        //        abtn[i].index = i;
+        //        abtn[i].onclick = function () {
+        //            for (var i = 0; i < abtn.length; i++) {
+        //                abtn[i].className = "";
+        //                adiv[i].style.display = "none";
+        //            }
+        //            this.className = "active";
+        //            adiv[this.index].style.display = "block";
+        //        }
+        //    }
+        //}
+    </script>
+
+    <script>
+        window.onload = function () {
+            var tab = new TabSwitch("div1");
+
+        }
+
+        function TabSwitch(id) {
+            var odiv = document.getElementById(id);
+            this.abtn = odiv.getElementsByTagName("input");
+            this.adiv = odiv.getElementsByTagName("div");
+            var i = 0;
+
+            var _this = this;
+            for (var i = 0; i < this.abtn.length; i++) {
+                this.abtn[i].index = i;
+                this.abtn[i].onclick = function () {
+                    _this.tab(this);
+                }
+            }
+        }
+
+        TabSwitch.prototype.tab = function (oBtn) {
+            for (var i = 0; i < this.abtn.length; i++) {
+                this.abtn[i].className = "";
+                this.adiv[i].style.display = "none";
+            }
+            oBtn.className = "active"
+            this.adiv[oBtn.index].style.display = "block";
+        }
+    </script>
+
+    <script>
+        //    //拖拽面向对象版
+        //function Drag(id) {
+        //    var _this = this;
+
+        //    this.disX = 0;
+        //    this.disY = 0;
+        //    this.odiv = document.getElementById(id);
+        //    this.odiv.onmousedown = function () {
+        //        _this.fnDown();
+        //        return false;
+        //    };
+        //}
+
+        //Drag.prototype.fnDown = function (ev) {
+        //    var _this = this;
+
+        //    var oEvent = ev || event;
+        //    this.disX = oEvent.clientX - this.odiv.offsetLeft;
+        //    this.disY = oEvent.clientY - this.odiv.offsetTop;
+
+        //    document.onmousemove = function () {
+        //        _this.fnMove();
+        //    }
+
+        //    document.onmouseup = function () {
+        //        _this.fnUp();
+        //    }
+
+        //}
+
+        //Drag.prototype.fnMove = function (ev) {
+        //    var oEvent = ev || event;
+        //    this.odiv.style.left = oEvent.clientX - this.disX + "px";
+        //    this.odiv.style.top = oEvent.clientY - this.disY + "px";
+        //}
+
+        //Drag.prototype.fnUp = function () {
+        //    document.onmousemove = null;
+        //    document.onmouseup = null;
+        //}
+
+
+    </script>
+    <script>
+        //    //通过继承限制拖拽范围
+        //function LimitDrag(id) {
+        //    Drag.call(this, id);
+        //}
+
+        //for (var i in Drag.prototype) {
+        //    LimitDrag.prototype[i] = Drag.prototype[i];
+        //}
+
+        //LimitDrag.prototype.fnMove = function (ev) {
+        //    var oEvent = ev || event;
+        //    var l = oEvent.clientX - this.disX;
+        //    var t = oEvent.clientY - this.disY;
+        //    if (l < 0) {
+        //        l = 0;
+        //    }
+        //    else if (l > document.documentElement.clientWidth - this.odiv.offsetWidth) {
+        //        l = document.documentElement.clientWidth - this.odiv.offsetWidth;
+        //    }
+        //    if (t < 0) {
+        //        t = 0;
+        //    }
+        //    else if (t > document.documentElement.clientHeight - this.odiv.offsetHeight) {
+        //        t = document.documentElement.clientHeight - this.odiv.offsetHeight
+        //    }
+        //    this.odiv.style.left = l + "px";
+        //    this.odiv.style.top = t + "px";
+        //}
+        //window.onload = function () {
+        //    new LimitDrag("div1");
+        //    new LimitDrag("div2");
+        //}
+    </script>
+
+    <style>
+        /*面向对象拖拽练习的CSS*/
+        /*#div1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+
+        #div2 {
+            width: 100px;
+            height: 100px;
+            background: yellow;
+            position: absolute;
+        }*/
+    </style>
+</head>
+<body>
+    <!--选项卡的面向对象版转换--HTML-->
+    <div id="div1">
+        <input class="active" type="button" value="教育" />
+        <input type="button" value="财经" />
+        <input type="button" value="aaa" />
+        <div style="display:block;">1asdfasdfd1111111111111s</div>
+        <div>2xzcvxzcv11111111111111111111</div>
+        <div>5332342345111111111111111111</div>
+    </div>
+    <!--拖拽面向对象练习的HTML-->
+    <!--<div id="div1">
+    </div>
+    <div id="div2">
+        asdf
+    </div>-->
+</body>
+</html>

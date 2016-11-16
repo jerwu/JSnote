@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>高级拖拽</title>
+    <!--<style>#div1{width:100px;height:100px;background-color:#0094ff;position:absolute}</style>-->
+    <script>
+        //window.onload = function () {
+        //    var oDiv = document.getElementById("div1");
+
+        //    oDiv.onmousedown = function (ev) {
+        //        var oEvent = ev || event;
+        //        var disX = oEvent.clientX - oDiv.offsetLeft;
+        //        var disY = oEvent.clientY - oDiv.offsetTop;
+
+        //        document.onmousemove = function (ev) {
+        //            var oEvent = ev || event;
+        //            //oDiv.style.left = oEvent.clientX - disX + "px";
+        //            //oDiv.style.top = oEvent.clientY - disY + "px";
+
+        //            var l = oEvent.clientX - disX;
+        //            var t = oEvent.clientY - disY;
+
+        //            if (l<0) {
+        //                l = 0;
+        //            }
+        //            else if (l > document.documentElement.clientWidth - oDiv.offsetWidth) {
+        //                l = document.documentElement.clientWidth - oDiv.offsetWidth;
+        //            }
+        //            if (t < 0) {
+        //                t = 0;
+        //            }
+        //            else if (t > document.documentElement.clientHeight - oDiv.offsetHeight) {
+        //                t = document.documentElement.clientHeight - oDiv.offsetHeight;
+        //            }
+        //            oDiv.style.left = l + "px";
+        //            oDiv.style.top = t + "px";
+        //        }
+
+        //        document.onmouseup = function () {
+        //            document.onmousemove = null;
+        //            document.onmouseup = null;
+        //        }
+        //    }
+        //}
+    </script>
+    <script>
+        ////把拖拽封装成函数
+        //window.onload = function () {
+        //    MyDrag("div1");
+        //}
+
+        //function MyDrag(id) {
+        //    var oDiv = document.getElementById(id);
+
+        //    oDiv.onmousedown = function (ev) {
+        //        var oEvent = ev || event;
+        //        var disX = oEvent.clientX - oDiv.offsetLeft;
+        //        var disY = oEvent.clientY - oDiv.offsetTop;
+
+        //        document.onmousemove = function (ev) {
+        //            var oEvent = ev || event;
+        //            //oDiv.style.left = oEvent.clientX - disX + "px";
+        //            //oDiv.style.top = oEvent.clientY - disY + "px";
+
+        //            var l = oEvent.clientX - disX;
+        //            var t = oEvent.clientY - disY;
+
+        //            if (l < 0) {
+        //                l = 0;
+        //            }
+        //            else if (l > document.documentElement.clientWidth - oDiv.offsetWidth) {
+        //                l = document.documentElement.clientWidth - oDiv.offsetWidth;
+        //            }
+        //            if (t < 0) {
+        //                t = 0;
+        //            }
+        //            else if (t > document.documentElement.clientHeight - oDiv.offsetHeight) {
+        //                t = document.documentElement.clientHeight - oDiv.offsetHeight;
+        //            }
+        //            oDiv.style.left = l + "px";
+        //            oDiv.style.top = t + "px";
+        //        }
+
+        //        document.onmouseup = function () {
+        //            document.onmousemove = null;
+        //            document.onmouseup = null;
+        //        }
+        //    }
+        //}
+    </script>
+
+    <!--拖拽来改变div大小-->
+    <style>
+        /*#div1 {width: 100px;height: 100px;background-color: #0094ff;position: relative;}
+        #div2{width:11px;height:11px;background:url(/Images/MyImages/drag_ico.gif);position:absolute;bottom:0px;right:0px;cursor:nw-resize;}*/
+    </style>
+    <script>
+        ////拖拽来改变div大小
+        //window.onload = function () {
+        //    var div1 = document.getElementById("div1");
+        //    var div2 = document.getElementById("div2");
+
+        //    div2.onmousedown = function (ev) {
+        //        var oEvent = ev || event;
+        //        var disX = oEvent.clientX - div2.offsetLeft;
+        //        var disY = oEvent.clientY - div2.offsetTop;
+
+        //        document.onmousemove = function (ev) {
+        //            var oEvent = ev || event;
+        //            div1.style.width = oEvent.clientX - disX + div2.offsetWidth + "px";
+        //            div1.style.height = oEvent.clientY - disY + div2.offsetHeight + "px";
+        //        }
+
+        //        document.onmouseup = function () {
+        //            document.onmousemove = null;
+        //            document.onmouseup = null;
+        //        }
+        //    }
+        //}
+    </script>
+
+    <!--与DOM配合，带框的拖拽-->
+    <style>
+    /*#div1{width:100px;height:100px;background-color:#0094ff;position:absolute}
+    .box{border:1px dashed black;position:absolute;}*/
+    </style>
+    <script>
+        //window.onload = function () {
+        //    var oDiv = document.getElementById('div1');
+
+        //    oDiv.onmousedown = function (ev) {
+        //        var oEvent = ev || event;
+        //        var disX = oEvent.clientX - oDiv.offsetLeft;
+        //        var disY = oEvent.clientY - oDiv.offsetTop;
+
+        //        var oNewDiv = document.createElement("div");
+        //        oNewDiv.className = "box";
+        //        oNewDiv.style.width = oDiv.offsetWidth - 2 + "px";
+        //        oNewDiv.style.height = oDiv.offsetHeight - 2 + "px";
+        //        oNewDiv.style.left = oDiv.offsetLeft + "px";
+        //        oNewDiv.style.top = oDiv.offsetTop + "px";
+
+        //        document.body.appendChild(oNewDiv);
+
+        //        document.onmousemove = function (ev) {
+        //            var oEvent = ev || event;
+
+        //            //oDiv.style.left = oEvent.clientX - disX + "px";
+        //            //oDiv.style.top = oEvent.clientY - disY + "px";
+
+        //            oNewDiv.style.left = oEvent.clientX - disX + "px";
+        //            oNewDiv.style.top = oEvent.clientY - disY + "px";
+        //        };
+
+        //        document.onmouseup = function () {
+        //            document.onmousemove = null;
+        //            document.onmouseup = null;
+
+        //            oDiv.style.left = oNewDiv.style.left;
+        //            oDiv.style.top = oNewDiv.style.top;
+        //            document.body.removeChild(oNewDiv);
+        //        };
+        //    };
+        //};
+    </script>
+
+    <!--碰撞检测-->
+    <style>
+        /*#div1{width:100px;height:100px;background-color:#808080;position:absolute;z-index:2;}
+        #div2{width:100px;height:100px;background-color:#000000;position:absolute;left:300px;top:300px;z-index:1;}*/
+    </style>
+    <script>
+        //window.onload = function () {
+        //    var div1 = document.getElementById("div1");
+        //    var div2 = document.getElementById("div2");
+
+        //    div1.onmousedown = function (ev) {
+        //        var oEvent = ev || event;
+        //        var disX = oEvent.clientX - div1.offsetLeft;
+        //        var disY = oEvent.clientY - div1.offsetTop;
+
+        //        document.onmousemove = function (ev) {
+        //            var oEvent = ev || event;
+
+        //            div1.style.left = oEvent.clientX - disX + "px";
+        //            div1.style.top = oEvent.clientY - disY + "px";
+
+        //            var Dl = div1.offsetLeft;
+        //            var Dr = div1.offsetLeft + div1.offsetWidth;
+        //            var Dt = div1.offsetTop;
+        //            var Db = div1.offsetTop + div1.offsetHeight;
+
+        //            var Dl2 = div2.offsetLeft;
+        //            var Dr2 = div2.offsetLeft + div2.offsetWidth;
+        //            var Dt2 = div2.offsetTop;
+        //            var Db2 = div2.offsetTop + div2.offsetHeight;
+
+        //            if (Dl>Dr2||Dr<Dl2||Dt>Db2||Db<Dt2) {
+        //                div2.style.backgroundColor = "black";
+        //            }
+        //            else {
+        //                div2.style.backgroundColor = "blue";
+        //            }
+        //        };
+
+        //        document.onmouseup = function () {
+        //            document.onmousemove = null;
+        //            document.onmouseup = null;
+        //        };
+        //    };
+        //};
+    </script>
+
+    <!--磁性吸附与事件捕获-->
+    <style>
+        /*#div1 {width: 100px;height: 100px;background-color: #0094ff;position: absolute;}*/
+
+    </style>
+    <script>
+        //window.onload = function () {
+        //    var oDiv = document.getElementById('div1');
+
+        //    oDiv.onmousedown = function (ev) {
+        //        var oEvent = ev || event;
+        //        var disX = oEvent.clientX - oDiv.offsetLeft;
+        //        var disY = oEvent.clientY - oDiv.offsetTop;
+
+        //        document.onmousemove = function (ev) {
+        //            var oEvent = ev || event;
+        //            var l = oEvent.clientX - disX;
+        //            var t = oEvent.clientY - disY;
+        //            if (l<50) {
+        //                l = 0;
+        //            }
+        //            else if (l>document.documentElement.clientWidth-oDiv.offsetWidth-50) {
+        //                l = document.documentElement.clientWidth - oDiv.offsetWidth;
+        //            }
+        //            if (t<50) {
+        //                t = 0;
+        //            }
+        //            else if (t>document.documentElement.clientHeight-oDiv.offsetHeight-50) {
+        //                t = document.documentElement.clientHeight - oDiv.offsetHeight;
+        //            }
+
+        //            oDiv.style.left = l + 'px';
+        //            oDiv.style.top = t + 'px';
+        //        };
+
+        //        document.onmouseup = function () {
+        //            document.onmousemove = null;
+        //            document.onmouseup = null;
+        //        };
+
+        //        oDiv.setCapture(true);
+        //    };
+        //};
+    </script>
+
+    <!--阻止默认事件（通过事件捕获的方式）-->
+    <style>
+        /*#div1 {width: 100px;height: 100px;background-color: #0094ff;position: absolute;}*/
+    </style>
+    <script>
+        //window.onload = function () {
+        //    var btn1 = document.getElementById("btn1");
+
+        //    btn1.onclick = function () {
+        //        alert("a")
+        //    }
+        //    btn1.setCapture(true);
+        //}
+
+        //window.onload = function () {
+        //    var oDiv = document.getElementById('div1');
+
+        //    oDiv.onmousedown = function (ev) {
+        //        var oEvent = ev || event;
+        //        var disX = oEvent.clientX - oDiv.offsetLeft;
+        //        var disY = oEvent.clientY - oDiv.offsetTop;
+
+        //        oDiv.onmousemove = function (ev) {
+        //            var oEvent = ev || event;
+
+        //            oDiv.style.left = oEvent.clientX - disX + 'px';
+        //            oDiv.style.top = oEvent.clientY - disY + 'px';
+        //        };
+
+        //        oDiv.onmouseup = function () {
+        //            oDiv.onmousemove = null;
+        //            oDiv.onmouseup = null;
+        //            oDiv.releaseCapture();
+        //        };
+
+        //        oDiv.setCapture(true);
+        //        return false;
+        //    };
+        //};
+    </script>
+</head>
+<body>
+    <!--<div id="div1"></div>-->
+
+    <!--拖拽来改变div大小--HTML-->
+    <!--<div id="div1">
+        <div id="div2"></div>
+    </div>-->
+
+    <!--与DOM配合，带框的拖拽-->
+    <!--<div id="div1"></div>-->
+
+    <!--碰撞检测-->
+    <!--<div id="div1"></div>
+    <div id="div2"></div>-->
+
+    <!--磁性吸附与事件捕获-->
+    <!--<div id="div1"></div>-->
+
+    <!--阻止默认事件（通过事件捕获的方式）-->
+    <!--nnjsdfxcnjskdfhj
+    <div id="div1">asdasdsadfaxzc</div>
+    sadasfaszxcdwcsc-->
+
+</body>
+</html>

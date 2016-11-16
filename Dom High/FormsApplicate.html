@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>表单应用</title>
+    <script>
+        window.onload = function () {
+            var oForm = document.getElementById("form1");
+            var oUser = document.getElementsByName("user")[0];
+            var oPass = document.getElementsByName("code")[0];
+
+            oForm.onsubmit = function () {
+                if (oUser.value == "" || oPass.value == "") {
+                    alert("您确定要提交吗");
+                    return false;
+                }
+            }
+
+            oForm.onreset = function () {
+                return confirm("您确定要重置吗");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="www.miaov.com"  method="get" id="form1">
+        用户名：<input type="text" name="user"/>
+        密码：<input type="password" name="code"/>
+        <input type="submit" id="btn1" value="提交" />
+        <input type="reset" id="btn2" value="重置" />
+    </form>
+</body>
+</html>

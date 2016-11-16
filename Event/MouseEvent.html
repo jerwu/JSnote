@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+        //事件的小例子
+        //document.onclick = function (ev) {
+        //    var oEvent = ev || event;
+
+        //    alert(oEvent.clientX + "," + oEvent.clientY);
+        //}
+    </script>
+
+    <script>
+        //window.onload = function () {
+        //    var div1 = document.getElementById("div1");
+        //    var div2 = document.getElementById("div2");
+        //    var div3 = document.getElementById("div3");
+
+        //    div1.onclick = div2.onclick = div3.onclick = function (ev) {
+        //        var oEvent = ev || event;
+        //        alert(this.style.backgroundColor);
+        //        oEvent.cancelBubble = true;
+        //    }
+
+        //    document.onclick = function () {
+        //        alert("document");
+        //    }
+        //}
+    </script>
+
+    <script>
+    //window.onload = function () {
+
+    //    var btn1 = document.getElementById("btn1");
+    //    var div1 = document.getElementById("div1");
+
+    //    btn1.onclick = function (ev) {
+    //        var oEvent = ev || event;
+    //        div1.style.display = "block";
+
+    //        oEvent.cancelBubble = true;
+    //    }
+
+    //    document.onclick = function () {
+    //        div1.style.display = "none";
+    //    }
+    //}
+    </script>
+
+    <script>
+    window.onload = function () {
+        var div1 = document.getElementById("div1");
+
+        document.onmousemove = function (ev) {
+            var oEvent = ev || event;
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+
+            div1.style.left = oEvent.clientX + scrollLeft + "px";
+            div1.style.top = oEvent.clientY + scrollTop + "px";
+        }
+    }
+    </script>
+
+    <script>
+    //window.onload = function () {
+    //    var adiv = document.getElementsByTagName("div");
+
+    //    document.onmousemove = function (ev) {
+    //        var oEvent = ev || event;
+
+    //        for (var i = adiv.length - 1; i > 0; i--) {
+    //            adiv[i].style.left = adiv[i - 1].style.left;
+    //            adiv[i].style.top = adiv[i - 1].style.top;
+    //        }
+    //        adiv[0].style.left = oEvent.clientX + "px";
+    //        adiv[0].style.top = oEvent.clientY + "px";
+    //    }
+    //}
+    </script>
+
+
+
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background-color: #0094ff;
+            position: absolute;
+        }
+    </style>
+
+    <!--<style> #div1 {width: 100px;height: 150px;background-color: #ccc;display: none;}</style>-->
+    <!--<style>
+        #div1{width:300px;height:300px;background-color:red}
+        #div2{width:200px;height:200px;background-color:blue}
+        #div3{width:100px;height:100px;background-color:#808080}
+    </style>-->
+
+    <!--<style>
+        div {
+            width: 20px;
+            height: 20px;
+            background-color: blue;
+            position: absolute;
+        }
+    </style>-->
+</head>
+<body>
+    <!--<div id="div1">
+        <div id="div2">
+            <div id="div3"></div>
+        </div>
+    </div>-->
+    <!--<input type="button" id="btn1" />
+
+    <!--<div id="div1"></div>-->
+    <div id="div1"></div>
+
+    <!--<div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>-->
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>raw js ajax practice</title>
+	
+	</script>
+</head>
+<body>
+	<!-- 在本地服务器环境下进行测试 -->
+	<form>
+		<label for="username">用户名：</label><input id="username" type="text" name="user"></input>
+		<br><br>
+		<label for="username">密码：</label><input id="password" type="password" name="mail"></input>
+		<br><br>
+		<input type="button" value="提交" id="submit">
+
+		<div id="block"></div>
+	</form>
+
+	<script>
+		function Ajax(URL){
+			var oAjax=null;
+			if (window.XMLHttpRequest) {
+				oAjax=new XMLHttpRequest();
+			}else if(window.ActiveXOject){
+				oAjax=new ActiveXOject("Microsoft.XMLHTTP")
+			}
+
+			oAjax.open("get",URL,true)
+
+			oAjax.onreadystatechange=function (){
+				if (oAjax.readyState==4&&oAjax.status==200) {
+					return oAjax.responseText;
+					// console.log(oAjax.responseText) ;
+				}
+			}
+
+			oAjax.send();
+		}
+		window.onload=function(){
+			var oUser=document.getElementById("username");
+			var oPwd=document.getElementById("password");
+			var oSub=document.getElementById("submit");
+			var oBlock=document.getElementById("block");
+
+			oSub.onclick=function(){
+				oBlock.innerHTML="Ajax("test.php?url=baidu")";
+				// console.log(Ajax("test.php?url=baidu"));
+			}
+		}
+	</script>
+</body>
