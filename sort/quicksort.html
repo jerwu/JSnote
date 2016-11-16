@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>quickSort practice</title>
+</head>
+<body>
+	<!-- 快排一 -->
+	<!-- 思路：
+		1、选取数组的第一个数作为基准点
+		2、创建两个数组，对数组从第二个数开始进行遍历比较其与第一个数的大小，小的push到left数组，大的push到right数组
+		3、对left数组和right数组进行quickSort递归调用，并将他们组合成一个数组 
+		注意：递归的结束条件是当两边的数组的长度为0时返回数组
+		-->
+	<script>
+		var quickSort=function (arr){
+			if (arr.length ==0) { return arr; }
+			var pivot=arr[0];
+			var left=[];
+			var right=[];
+
+			for (var i = 1; i < arr.length; i++) {
+				if (arr[i]<pivot) {
+					left.push(arr[i]);
+				}
+				else{
+					right.push(arr[i]);
+				}
+			}
+			return quickSort(left).concat(pivot,quickSort(right));
+		}
+		
+		var array=[9,5,8,3,7,6,0,4,2,1];
+		var myArr=quickSort(array);
+		for(var key in myArr){
+			alert(myArr[key]);
+		}
+		
+		
+	</script>
+
+	<!-- 快排二 -->
+	<!-- 有问题待解决 -->
+	<script>
+		// function quickSort(arr,low,high){
+		// 	if (low>high) {return ;}
+		// 	var i=low+1;
+		// 	var j=high;
+		// 	var pivot=arr[low];
+
+		// 	while(i<j){
+		// 		while(pivot>=arr[i]&&i<j){
+		// 			i++;
+		// 		}
+		// 		while(pivot<=arr[j]&&i<=j){
+		// 			j--;
+		// 		}
+		// 		if (i<j) {
+		// 			swap(arr,i,j)
+		// 		}
+		// 	}
+		// 	if (low<j) {
+		// 		swap(arr,low,j);
+		// 	}
+
+		// 	quickSort(arr,low,j-1);
+		// 	quickSort(arr,j+1,high);
+		// 	return arr;
+		// }
+
+		// function swap(arr,index1,index2){
+		// 	var temp=arr[index1];
+		// 	arr[index1]=arr[index2];
+		// 	arr[index2]=temp;
+		// }
+
+		// var array=[9,5,8,3,7,6,0,4,2,1];
+		
+		// console.log(quickSort(array,0,9));
+	</script>
+</body>
+</html>
