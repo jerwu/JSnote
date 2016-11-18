@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多元素水平居中</title>
+	<style>
+		#wrap div{background-color: black;color: pink;width:100px;height:100px;margin-left:10px;line-height: 100px;}
+		#wrap{border:1px solid red;text-align: center;}
+		#wrap div{display: inline-block;*display: inline;*zoom:1;}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div>a</div>
+		<div>b</div>
+		<div>c</div>
+		<div>d</div>
+		<div>c</div>
+		<div>d</div>
+	</div>
+</body>
+</html>

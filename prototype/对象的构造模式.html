@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>object-oriented programing-对象的构造模式</title>
+	<script>
+		// 对象的构造模式-工厂模式
+		/*
+		function createPerson(name,age,job){
+			var o=new Object();
+			o.name=name;
+			o.age=age;
+			o.job=job;
+			o.sayNmae=function(){
+				alert(this.name);
+			}
+			return o;
+		}
+		var person=createPerson('jer',21,'student');
+		person.sayNmae();
+		*/
+		
+		//对象的构造模式-构造函数模式
+		/*
+		function Person(name,age){
+			this.name=name;
+			this.age=age;
+			this.sayName=function(){
+				alert(this.name);
+			}
+		};
+		 
+		var person1=new Person('jer',21);
+		var person2=new Person("milky",20);
+		//1、
+		// person1.sayName();
+		// alert(person1.sayName==person2.sayName
+		
+		// 2、
+		// alert(person1.constructor==Person);
+		// alert(person1.constructor==Person);
+		//这两个对象都有一个constructor（构造函数）属性，该属性指向Person，
+
+		// 3、
+		var o=new Object();
+		Person.call(o,'lily',21);
+		o.sayName();
+		*/
+	
+		//对象的构造模式-原型模式
+		/*
+		// function Person(){};
+		// Person.prototype.name='jer';
+		// Person.prototype.age=21;
+		// Person.prototype.sayName=function(){
+		// 	alert(this.name);
+		// }
+
+		// var person1=new Person();
+		// var person2=new Person();
+		// alert(person1.sayName==person2.sayName)
+		// alert(person1.constructor==Person);
+		// alert(person1.constructor==Object);
+
+		function Person(){};
+		Person.prototype={
+			name:'jer',
+			age:'21',
+			sayName:function(){alert(this.name)}
+		}
+		var person1=new Person();
+		var person2=new Person();
+		alert(person1.sayName==person2.sayName)
+		alert(person1.constructor==Person);
+		alert(person1.constructor==Object);
+		*/
+	
+		//对象的构造模式-组合使用构造函数模式和原型模式
+		/*
+		function Person(name,age){
+			this.name=name;
+			this.age=age;
+		}
+		Person.prototype.sayName=function(){
+			alert(this.name);
+		}
+		var person1=new Person('jer',21);
+		var person2=new Person('lily',20);
+		alert(person1.sayName==person2.sayName);
+		alert(person1.constructor==Person);
+		*/
+	
+		// 对象的构造模式-动态原型模式
+		// function Person(name,age){
+		// 	this.name=name;
+		// 	this.age=age;
+
+		// 	if (typeof this.sayName!="function") {
+		// 		Person.prototype.sayName=function(){alert(this.name)};
+		// 	}
+		// }
+
+		// var person1=new Person('jer',21);
+		// var person2=new Person('lily',20);
+		// alert(person1.sayName==person2.sayName);
+
+		// 对象的构造模式-寄生构造函数模式
+		/*
+		function Person(name,age){
+			var o=new Object();
+			o.name=name;
+			o.age=age;
+			o.sayName=function(){alert(this.name)};
+			return o;
+		}
+
+		var person1=new Person('jer',21);
+		var person2=new Person('lily',20);
+		// person1.sayName();
+		alert(person1 instanceof Person)
+		// alert(person1.sayName==person2.sayName);
+		 */
+		
+		// 对象的构造模式-稳妥构造函数模式
+		// function Person(name,age){
+		// 	var o = new Object();
+		// 	o.name=name;
+		// 	o.age=age;
+		// 	o.sayName=function(){alert(name)};
+		// 	return o;
+		// }
+
+		// var person=Person('jer',21);
+		// person.sayName();
+
+		
+		</script>
+</head>
+<body>
+	
+</body>
+</html>

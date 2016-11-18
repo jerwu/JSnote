@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多栏自适应布局</title>
+	<style>
+		.container{ 
+			width:1000px;
+			margin-top: 0 auto;
+			border:1px solid black;
+			margin:0 auto;
+		} 
+
+		html, body { height: 100%; width: 100%; margin: 0; padding: 0; }
+	    .left{
+	      float: left;
+	      width:200px;
+	    }
+	    .right{
+	      width:200px;
+	      float:right;
+	    }
+	    .center{
+	      overflow:hidden;
+	      
+	    }
+	</style>
+</head>
+<body>
+	<div class = "container">
+	   <div class ="right">低版本IE浏览器有个hasLayout的概念，不过这玩意太老生常谈，而且也过时了，我现在无力再吐槽。总而言之，言而总之，就特性表现而言，很多时候和BFC这个概念很像。</div>
+	   <div class ="left">低版本IE浏览器有个hasLayout的概念，不过这玩意太老生常谈，而且也过时了，我现在无力再吐槽。总而言之，言而总之，就特性表现而言，很多时候和BFC这个概念很像。</div>
+	   <div class="center">低版本IE浏览器有个hasLayout的概念，不过这玩意太老生常谈，而且也过时了，我现在无力再吐槽。总而言之，言而总之，就特性表现而言，很多时候和BFC这个概念很像。</div>
+	  <!-- <div class ="right">低版本IE浏览器有个hasLayout的概念，不过这玩意太老生常谈，而且也过时了，我现在无力再吐槽。总而言之，言而总之，就特性表现而言，很多时候和BFC这个概念很像。</div> -->
+	  <div style="clear:both;"></div>
+	</div>
+</body>
+</html>
